@@ -18,502 +18,502 @@ MonoBehaviour:
   m_GUID: 6075389189778644dae39084fb18a8d5
   m_SerializeEntries:
   - m_GUID: 009b77b5842cd5d499ba7afb150c86ff
-    m_Address: Assets/Art/Images/Black/hm_black_14.png
+    m_Address: hm_black_14
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01c22b8efa3e4db43bb763d00ffc8651
-    m_Address: Assets/Art/Images/Black/hm_black_9.png
+    m_Address: hm_black_9
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 029cf7e7e6f93b645802c591bd8b2e76
-    m_Address: Assets/Art/Images/White/hm_white_33.png
+    m_Address: hm_white_33
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 031595331e67e2d409cfb4bf84beae9d
-    m_Address: Assets/Art/Images/White/hm_white_7.png
+    m_Address: hm_white_7
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 082d17335da78a14681331880325d219
-    m_Address: Assets/Art/Images/White/hm_white_45.png
+    m_Address: hm_white_45
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08e56f4e26f0aa5428dcd8cde2641f86
-    m_Address: Assets/Art/Images/White/hm_white_12.png
+    m_Address: hm_white_12
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 100ffe84557a07c49857cb4d75c1a4b8
-    m_Address: Assets/Art/Images/White/hm_white_34.png
+    m_Address: hm_white_34
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11726cd1271e7884e85785125711fc7d
-    m_Address: Assets/Art/Images/White/hm_white_47.png
+    m_Address: hm_white_47
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15c92fda8bfae0248be54bf5a45926ed
-    m_Address: Assets/Art/Images/Black/hm_black_20.png
+    m_Address: hm_black_20
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1edce7076c3692943a77c22246419200
-    m_Address: Assets/Art/Images/Black/hm_black_26.png
+    m_Address: hm_black_26
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20c2b5045eb5f1d44aadfb9f995bdc07
-    m_Address: Assets/Art/Images/White/hm_white_28.png
+    m_Address: hm_white_28
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25a7dc2a3a6e7aa4f8822f79cca6d436
-    m_Address: Assets/Art/Images/Black/hm_black_22.png
+    m_Address: hm_black_22
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 290743c5158be7c4f94a4e47a544118c
-    m_Address: Assets/Art/Images/Black/hm_black_13.png
+    m_Address: hm_black_13
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bcc0e92bc030e24182ed1e31f4a6fea
-    m_Address: Assets/Art/Images/White/hm_white_38.png
+    m_Address: hm_white_38
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2dee5f02458483f49a94508f159644ac
-    m_Address: Assets/Art/Images/Black/hm_black_1.png
+    m_Address: hm_black_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e25c03800b432846a06a9d33a383b0d
-    m_Address: Assets/Art/Images/White/hm_white_17.png
+    m_Address: hm_white_17
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e80e4b77ad16254496f95b0f03f1f5e
-    m_Address: Assets/Art/Images/White/hm_white_25.png
+    m_Address: hm_white_25
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f5b1296000866f40ae777b3dc69d235
-    m_Address: Assets/Art/Images/Black/hm_black_3.png
+    m_Address: hm_black_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 353a5eef00219cb4a9e892aeb3bc7f9e
-    m_Address: Assets/Art/Images/White/hm_white_20.png
+    m_Address: hm_white_20
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 356291ab112481b45b71fbfa8583c000
-    m_Address: Assets/Art/Images/White/hm_white_4.png
+    m_Address: hm_white_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35bc810a5349b284babf2882ece26630
-    m_Address: Assets/Art/Images/White/hm_white_15.png
+    m_Address: hm_white_15
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36ff6c77874221e4fad12fcf2e32cebe
-    m_Address: Assets/Art/Images/Black/hm_black_35.png
+    m_Address: hm_black_35
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3baca9ad494b36e469caeea930d10a32
-    m_Address: Assets/Art/Images/Black/hm_black_28.png
+    m_Address: hm_black_28
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bbb8523cab864e4aabfc9881903274d
-    m_Address: Assets/Art/Images/Black/hm_black_7.png
+    m_Address: hm_black_7
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c6b1382c6686914f8f81468ecc73725
-    m_Address: Assets/Art/Images/White/hm_white_2.png
+    m_Address: hm_white_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3eb5a1e3740d4cd418b55f537c3768f9
-    m_Address: Assets/Art/Images/Black/hm_black_50.png
+    m_Address: hm_black_50
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 402e8d18ec42d7443aa1ba6fb75c2fc9
-    m_Address: Assets/Art/Images/Black/hm_black_15.png
+    m_Address: hm_black_15
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44a0249cab4873849bbe8025e0900c97
-    m_Address: Assets/Art/Images/White/hm_white_46.png
+    m_Address: hm_white_46
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44d083bbbfbb1a447bfe15cb804c5cf1
-    m_Address: Assets/Art/Images/Black/hm_black_6.png
+    m_Address: hm_black_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45083af48bc5f4e4ba4b31f0e6e021b8
-    m_Address: Assets/Art/Images/Black/hm_black_17.png
+    m_Address: hm_black_17
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4948c7bafd4058a4cbc50e1db8f10e3f
-    m_Address: Assets/Art/Images/Black/hm_black_30.png
+    m_Address: hm_black_30
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 495461989b4bac04585ad9fbe3f6bfc9
-    m_Address: Assets/Art/Images/White/hm_white_6.png
+    m_Address: hm_white_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 497a5eda9ac766d42aea9194f5dbdbed
-    m_Address: Assets/Art/Images/Black/hm_black_40.png
+    m_Address: hm_black_40
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4aa4f24592185e84fa991e418199a24a
-    m_Address: Assets/Art/Images/Black/hm_black_31.png
+    m_Address: hm_black_31
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b125298d7e3d5940b9db335e522a7b0
-    m_Address: Assets/Art/Images/Black/hm_black_48.png
+    m_Address: hm_black_48
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f450cf8476d0f948a7fcc8f94c897e7
-    m_Address: Assets/Art/Images/White/hm_white_32.png
+    m_Address: hm_white_32
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f91ab2444198f142a9be32c91794abd
-    m_Address: Assets/Art/Images/Black/hm_black_49.png
+    m_Address: hm_black_49
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ff9bc5a93622ee46993d22459231620
-    m_Address: Assets/Art/Images/Black/hm_black_42.png
+    m_Address: hm_black_42
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5289166650c8f3944bceecf349d0c880
-    m_Address: Assets/Art/Images/White/hm_white_19.png
+    m_Address: hm_white_19
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54fc8ae0964b2be46976e472bd2b211f
-    m_Address: Assets/Art/Images/White/hm_white_5.png
+    m_Address: hm_white_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59b1a8c4bbe1624449e6d5b430c38dbd
-    m_Address: Assets/Art/Images/White/hm_white_40.png
+    m_Address: hm_white_40
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a443a639f934a444b40faa7c1a5ba9b
-    m_Address: Assets/Art/Images/White/hm_white_43.png
+    m_Address: hm_white_43
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ef49b67cb1ce444e8d7b76cebacdeeb
-    m_Address: Assets/Art/Images/White/hm_white_27.png
+    m_Address: hm_white_27
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 617617cf85f22214d93ca35da97b0124
-    m_Address: Assets/Art/Images/White/hm_white_9.png
+    m_Address: hm_white_9
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 621033f0c691a354992203dfc56fd78a
-    m_Address: Assets/Art/Images/Black/hm_black_43.png
+    m_Address: hm_black_43
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 621400059ad5f044a9c9df0dc1fe6b75
-    m_Address: Assets/Art/Images/White/hm_white_3.png
+    m_Address: hm_white_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 631b52c7e333fb641995c62d13f26596
-    m_Address: Assets/Art/Images/Black/hm_black_47.png
+    m_Address: hm_black_47
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67222c07087b04b44a13390f8ac1c7f9
-    m_Address: Assets/Art/Images/White/hm_white_36.png
+    m_Address: hm_white_36
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69d969a82df602e4397fc9e8880d7cce
-    m_Address: Assets/Art/Images/Black/hm_black_34.png
+    m_Address: hm_black_34
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6aa1ebd58d2be39408ab1849d72566c3
-    m_Address: Assets/Art/Images/Black/hm_black_4.png
+    m_Address: hm_black_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6cbd6b98374aec5468d03d9e5430a37b
-    m_Address: Assets/Art/Images/White/hm_white_10.png
+    m_Address: hm_white_10
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 768429c527ef0ca418d5ca2f73d70895
-    m_Address: Assets/Art/Images/Black/hm_black_12.png
+    m_Address: hm_black_12
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 778707acda9dca743914ce6aa90e3633
-    m_Address: Assets/Art/Images/Black/hm_black_2.png
+    m_Address: hm_black_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 780e73e51184b3b429c66b23488443fb
-    m_Address: Assets/Art/Images/White/hm_white_11.png
+    m_Address: hm_white_11
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 794766b0ca32234499773ca8d7ca782b
-    m_Address: Assets/Art/Images/White/hm_white_26.png
+    m_Address: hm_white_26
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b6cc352fdcb99a428186436ce3b7072
-    m_Address: Assets/Art/Images/White/hm_white_31.png
+    m_Address: hm_white_31
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f4e56cb869c0fb47af9ffb74399ff3c
-    m_Address: Assets/Art/Images/Black/hm_black_29.png
+    m_Address: hm_black_29
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81318b6504b4b294ebe4af4db6597ec6
-    m_Address: Assets/Art/Images/White/hm_white_24.png
+    m_Address: hm_white_24
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 838116c78ab64474491926ff853d2c33
-    m_Address: Assets/Art/Images/Black/hm_black_24.png
+    m_Address: hm_black_24
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85dd109713778f9439e9803041b9d807
-    m_Address: Assets/Art/Images/Black/hm_black_45.png
+    m_Address: hm_black_45
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8952ded13a85d5e4db6dc65109e4bc43
-    m_Address: Assets/Art/Images/White/hm_white_18.png
+    m_Address: hm_white_18
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d108dedc2b46904385eb70e372da35c
-    m_Address: Assets/Art/Images/White/hm_white_23.png
+    m_Address: hm_white_23
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 907ab41abafef524f8ac55326277d335
-    m_Address: Assets/Art/Images/White/hm_white_16.png
+    m_Address: hm_white_16
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 929b3bc26be928d40b1f84f5a75483c0
-    m_Address: Assets/Art/Images/Black/hm_black_44.png
+    m_Address: hm_black_44
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 945aaf2c78642ae4ca16f7928181672d
-    m_Address: Assets/Art/Images/White/hm_white_48.png
+    m_Address: hm_white_48
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 955fe60e471ffcf4494f937b21a97748
-    m_Address: Assets/Art/Images/Black/hm_black_11.png
+    m_Address: hm_black_11
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97bc8e201c96ef843a7ad087efc17acd
-    m_Address: Assets/Art/Images/Black/hm_black_19.png
+    m_Address: hm_black_19
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9954072cf78033f429b80553a4025627
-    m_Address: Assets/Art/Images/Black/hm_black_27.png
+    m_Address: hm_black_27
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c63707f290814145b40347a0eb76213
-    m_Address: Assets/Art/Images/Black/hm_black_21.png
+    m_Address: hm_black_21
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f66609cc12a39644a08fe6bb8947973
-    m_Address: Assets/Art/Images/White/hm_white_22.png
+    m_Address: hm_white_22
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a03a882e2da89ad43af0a7f611b1a493
-    m_Address: Assets/Art/Images/White/hm_white_13.png
+    m_Address: hm_white_13
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3493b96deabfd44da1b7f0428db6aa5
-    m_Address: Assets/Art/Images/Black/hm_black_18.png
+    m_Address: hm_black_18
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9ab99ad9785bf8478a1ae85affb33c2
-    m_Address: Assets/Art/Images/Black/hm_black_39.png
+    m_Address: hm_black_39
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa64eaae9bd86864192fe0d5c2d2af63
-    m_Address: Assets/Art/Images/Black/hm_black_16.png
+    m_Address: hm_black_16
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab8ee309013fef743877e71f5f6e768b
-    m_Address: Assets/Art/Images/White/hm_white_14.png
+    m_Address: hm_white_14
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4354fe51c4e891489801fecd0d7d4fb
-    m_Address: Assets/Art/Images/White/hm_white_49.png
+    m_Address: hm_white_49
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b85b931782fb7c142a7c69c7c8b43d62
-    m_Address: Assets/Art/Images/White/hm_white_37.png
+    m_Address: hm_white_37
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bafe7bce88a71fe409fe68b32e5fad5a
-    m_Address: Assets/Art/Images/Black/hm_black_46.png
+    m_Address: hm_black_46
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc39e667c3855414a88c4d8acef61685
-    m_Address: Assets/Art/Images/White/hm_white_41.png
+    m_Address: hm_white_41
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5b73724aaf10d84097e4e3a0b61c5de
-    m_Address: Assets/Art/Images/White/hm_white_39.png
+    m_Address: hm_white_39
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6f0c9b1b0f79bf438d96463ccd34b18
-    m_Address: Assets/Art/Images/White/hm_white_29.png
+    m_Address: hm_white_29
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7ea4805495a3eb4e82577c99fdb19f5
-    m_Address: Assets/Art/Images/Black/hm_black_32.png
+    m_Address: hm_black_32
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc570af5b7d536a468e885deab027ead
-    m_Address: Assets/Art/Images/Black/hm_black_33.png
+    m_Address: hm_black_33
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccf553690d97e2348826def2291559a1
-    m_Address: Assets/Art/Images/White/hm_white_30.png
+    m_Address: hm_white_30
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d213729932a87fa47a76eae0f35189b2
-    m_Address: Assets/Art/Images/White/hm_white_8.png
+    m_Address: hm_white_8
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2d95925ed0af0945b789b3bbd31b0e6
-    m_Address: Assets/Art/Images/Black/hm_black_38.png
+    m_Address: hm_black_38
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d84c0b0714bf43b44a9283a099ea4a11
-    m_Address: Assets/Art/Images/White/hm_white_1.png
+    m_Address: hm_white_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da1845ffd5219174b8fd2fdabec6ed94
-    m_Address: Assets/Art/Images/White/hm_white_21.png
+    m_Address: hm_white_21
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd6d052995d939f4da074c0470ceb147
-    m_Address: Assets/Art/Images/White/hm_white_42.png
+    m_Address: hm_white_42
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de262c310e89e1747a46752cb5a8ce0b
-    m_Address: Assets/Art/Images/White/hm_white_35.png
+    m_Address: hm_white_35
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dee770e7c2472064e9c20be9e33d5cf5
-    m_Address: Assets/Art/Images/Black/hm_black_23.png
+    m_Address: hm_black_23
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e17ad8c3ccb7aa640b7378bf376b957d
-    m_Address: Assets/Art/Images/Black/hm_black_5.png
+    m_Address: hm_black_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e43eb423ddae9274894190ed7b14a2ba
-    m_Address: Assets/Art/Images/White/hm_white_50.png
+    m_Address: hm_white_50
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3473fa8a5608004a8c5f25089ce2a9b
-    m_Address: Assets/Art/Images/Black/hm_black_41.png
+    m_Address: hm_black_41
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3c00373c04bf8e4f8bfaaa34085673b
-    m_Address: Assets/Art/Images/Black/hm_black_8.png
+    m_Address: hm_black_8
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4d9862993fea2849ae70a9c79faadce
-    m_Address: Assets/Art/Images/Black/hm_black_10.png
+    m_Address: hm_black_10
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa225252e7760924a88f1f56d7ad3200
-    m_Address: Assets/Art/Images/Black/hm_black_36.png
+    m_Address: hm_black_36
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa3be481babc22148891d5480cb4a416
-    m_Address: Assets/Art/Images/Black/hm_black_25.png
+    m_Address: hm_black_25
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc6eaf7542ccce84d8efdd41aaa6a011
-    m_Address: Assets/Art/Images/White/hm_white_44.png
+    m_Address: hm_white_44
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd8a1f0b11b954b47b4e8012b8da9397
-    m_Address: Assets/Art/Images/Black/hm_black_37.png
+    m_Address: hm_black_37
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

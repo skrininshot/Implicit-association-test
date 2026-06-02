@@ -9,21 +9,20 @@ public class QuestionnaireInstaller : MonoInstaller
 {
     [SerializeField] private QuestionnaireWelcomeView welcomeView;
     [SerializeField] private QuestionnaireView questionnaireView;
-    [SerializeField] private QuestionnaireResultsView resultsView;
+    [SerializeField] private RaceQuestionnaireResultsView resultsView;
 
     public override void InstallBindings()
     {
-        ICorrectAnswerChecker correctAnswerChecker = new RaceCorrectAnswerChecker();
+        Container.BindInstance(new RaceQuestionnaireGenerator().Generate()).AsSingle();
         
-        IQuestionnaireGenerator questionnaireGenerator = new RaceQuestionnaireGenerator();
-        var questionnaireModel = questionnaireGenerator.Generate();
-        Container.BindInstance(questionnaireModel).AsSingle();
+        Container.BindInterfacesTo<RaceCorrectAnswerChecker>();
+        Container.BindInterfacesTo<RaceQuestionnaireResultsHandler>();
 
         var timerModel = new TimerModel();
         Container.BindInterfacesTo<TimerController>().AsSingle().WithArguments(timerModel);
         
-        Container.BindInterfacesTo<AnswersCollectController>().AsSingle().WithArguments(new QuestionsAnswersDataSetModel());
-        Container.BindInterfacesTo<ResultsHandlerController>().AsSingle().WithArguments(new QuestionsAnswersDataSetModel());
-        Container.BindInterfacesTo<QuestionnaireController>().AsSingle().WithArguments(welcomeView, resultsView, questionnaireView, timerModel, correctAnswerChecker);
+        var phasesQuestionsAnswersModel = new PhasesQuestionsAnswersModel();
+        
+        Container.BindInterfacesTo<QuestionnaireController>().AsSingle().WithArguments(welcomeView, resultsView, questionnaireView, timerModel, phasesQuestionsAnswersModel);
     }
 }

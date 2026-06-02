@@ -8,31 +8,35 @@ using Zenject;
 public class QuestionnaireController : IQuestionnaireController, IInitializable, IDisposable
 {
     private readonly QuestionnaireWelcomeView _welcomeView;
-    private readonly QuestionnaireResultsView _resultsView;
+    private readonly RaceQuestionnaireResultsView _resultsView;
     private readonly QuestionnaireView _questionnaireView;
     private readonly TimerModel _timer;
     private readonly ICorrectAnswerChecker _correctAnswerChecker;
+    private readonly IQuestionnaireResultsHandler _resultsHandler;
     
     private readonly QuestionnaireModel _model;
-    private readonly IAnswersCollectController _answersCollectController;
+    private readonly PhasesQuestionsAnswersModel _phasesQuestionsAnswersModel;
     
     private int _currentPhase;
     private int _currentQuestion;
     
     private QuestionModel DisplayingQuestion => _model.Phases[_currentPhase].Questions[_currentQuestion];
 
+    private QuestionsAnswersModel _currentPhaseAnswers;
+    
     private State _state;
 
-    public QuestionnaireController(QuestionnaireWelcomeView welcomeView, QuestionnaireResultsView resultsView, 
-        QuestionnaireView questionnaireView, QuestionnaireModel model, IAnswersCollectController answersCollectController,
-        ICorrectAnswerChecker correctAnswerChecker)
+    public QuestionnaireController(QuestionnaireWelcomeView welcomeView, RaceQuestionnaireResultsView resultsView, 
+        QuestionnaireView questionnaireView, QuestionnaireModel model, PhasesQuestionsAnswersModel phasesQuestionsAnswersModel,
+        ICorrectAnswerChecker correctAnswerChecker, IQuestionnaireResultsHandler resultsHandler)
     {
         _welcomeView = welcomeView;
         _resultsView = resultsView;
         _questionnaireView = questionnaireView;
         _model = model;
-        _answersCollectController = answersCollectController;
+        _phasesQuestionsAnswersModel = phasesQuestionsAnswersModel;
         _correctAnswerChecker = correctAnswerChecker;
+        _resultsHandler = resultsHandler;
     }
     
     public void Initialize()
@@ -46,6 +50,8 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
         
         _welcomeView.ButtonAccept.onClick.AddListener(OnWelcomeButtonClicked);
         _resultsView.ButtonAccept.onClick.AddListener(OnResultsButtonClicked);
+
+        _currentPhaseAnswers = new();
         
         SwitchState(State.Welcome);
     }
@@ -86,44 +92,49 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
                 break;
             
             case State.Questionnaire:
-                _answersCollectController.Reset();
+                _phasesQuestionsAnswersModel.Reset();
                 _currentQuestion = 0;
                 _currentPhase = 0;
                 UpdateQuestionView();
                 break;
             
             case State.Results:
+                var results = _resultsHandler.GetResults(_phasesQuestionsAnswersModel);
+                _resultsView.SetResults(results);
                 break;
         }
     }
     
     void OnOptionButtonOptionClicked(AnswerOptionModel answerOption)
     {
-        if (_currentQuestion < _model.Phases[_currentPhase].Questions.Length - 1)
+        if (_correctAnswerChecker.IsCorrectAnswer(_currentPhase, DisplayingQuestion, answerOption))
         {
-            if (_correctAnswerChecker.IsCorrectAnswer(_currentPhase, DisplayingQuestion, answerOption))
+            if (_currentQuestion < _model.Phases[_currentPhase].Questions.Length - 1)
             {
+                _currentPhaseAnswers.Add(new QuestionAnswerModel(DisplayingQuestion, answerOption, _timer.Value));
                 _currentQuestion++;
+                
+                UpdateQuestionView();
+            }
+            else if (_currentPhase < _model.Phases.Length - 1)
+            {
+                _phasesQuestionsAnswersModel.Add(_currentPhaseAnswers);
+                _currentPhase++;
+                _currentQuestion = 0;
+
                 UpdateQuestionView();
             }
             else
             {
-                SetMistakeView(true);
+                SwitchState(State.Results);
             }
-        }
-        else if (_currentPhase < _model.Phases.Length - 1)
-        {
-            _currentQuestion++;
-            UpdateQuestionView();
+            
+            _timer.Reset();
         }
         else
         {
-            SwitchState(State.Results);
+            SetMistakeView(true);
         }
-        
-        _timer.Reset();
-        
-        _answersCollectController.RegisterAnswer(DisplayingQuestion, answerOption, _timer.Value);
     }
 
     void SetMistakeView(bool active)

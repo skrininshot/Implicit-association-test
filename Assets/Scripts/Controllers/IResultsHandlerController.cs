@@ -4,6 +4,6 @@ namespace Controllers
 {
     public interface IResultsHandlerController
     {
-        public QuestionnaireResultsModel GetResults();
+        public IQuestionnaireResultsModel GetResults();
     }
 }

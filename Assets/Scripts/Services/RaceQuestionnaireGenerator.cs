@@ -29,7 +29,7 @@ namespace Services
                     var wordPolarity = isPositiveWord ? "positive" : "negative";
                     
                     var imagePath = $"hm_{raceName}_{humanIndex}";
-                    var textPath = $"{wordPolarity}_{wordIndex}";
+                    var textPath = $"ambivalent_word_{wordPolarity}_{wordIndex}";
 
                     CharacteristicModel[] characteristicModel =
                     {
