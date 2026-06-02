@@ -1,14 +1,19 @@
+using UnityEngine;
+
 namespace Models
 {
     [System.Serializable]   
     public class QuestionnaireModel
     {
-        public QuestionModel[] Questions { get; private set; }
+        [field: SerializeField] public string Name { get; private set; }
+        [field: SerializeField] public QuestionnairePhaseModel[] Phases { get; private set; }
+        
         public AnswerOptionModel[] AnswerOptions { get; private set; }
         
-        public QuestionnaireModel(QuestionModel[] questions, AnswerOptionModel[] answerOptions)
+        public QuestionnaireModel(string name, AnswerOptionModel[] answerOptions, QuestionnairePhaseModel[] phases)
         {
-            Questions = questions;
+            Name = name;
+            Phases = phases;
             AnswerOptions = answerOptions;
         }
     }

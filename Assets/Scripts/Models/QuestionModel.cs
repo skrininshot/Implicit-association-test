@@ -3,7 +3,7 @@ namespace Models
     [System.Serializable]
     public class QuestionModel
     {
-        public CharacteristicModel[] Characteristics { get; private set; }
+        public readonly CharacteristicModel[] Characteristics;
 
         public QuestionModel(CharacteristicModel[] characteristics)
         {

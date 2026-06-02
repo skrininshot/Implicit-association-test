@@ -1,4 +1,3 @@
-using System;
 using Models;
 using TMPro;
 using UnityEngine;
@@ -14,8 +13,8 @@ namespace Views
 
         public void Initialize(AnswerOptionModel answerOption)
         {
-            Text.text = answerOption.Name;
             Image.color = answerOption.ViewColor;
+            Text.text = answerOption.Content;
         }
     }
 }

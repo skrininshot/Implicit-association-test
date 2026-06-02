@@ -5,13 +5,15 @@ namespace Models
     [System.Serializable]
     public class AnswerOptionModel
     {
-        public string Name { get; private set; }
-        public Color ViewColor { get; private set; }
+        public readonly string Name;
+        public readonly Color ViewColor;
+        public readonly string Content;
         
-        public AnswerOptionModel(string name, Color viewColor)
+        public AnswerOptionModel(string name, Color viewColor, string content)
         {
             Name = name;
             ViewColor = viewColor;
+            Content = content;
         }
     }
 }

@@ -3,13 +3,17 @@ namespace Models
     [System.Serializable]
     public class CharacteristicModel
     {
-        public string Data { get; private set; }
-        public CharacteristicType Type { get; private set; }
+        public readonly string Name;
+        public readonly string Type;
+        public readonly string Data;
+        public readonly CharacteristicType DataType;
 
-        public CharacteristicModel(string data, CharacteristicType type)
+        public CharacteristicModel(string name, string type, string data, CharacteristicType dataType)
         {
+            Name = name;
+            Type = name;
             Data = data;
-            Type = type;
+            DataType = dataType;
         }
     }
 }

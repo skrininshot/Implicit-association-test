@@ -4,7 +4,7 @@ using Models;
 using UnityEngine;
 using Views;
 
-public class QuestionnaireView : MonoBehaviour
+public class QuestionnaireView : ScreenView
 {
      [SerializeField] private Transform buttonOptionsContainer;
      [SerializeField] private Transform characteristicsContainer;
@@ -12,6 +12,8 @@ public class QuestionnaireView : MonoBehaviour
      [SerializeField] private ButtonOptionView buttonOptionViewPrefab;
      [SerializeField] private CharacteristicViewTypePrefab[] characteristicViewTypePrefabs;
 
+     [SerializeField] private GameObject mistakeView;
+     
      private Dictionary<AnswerOptionModel, ButtonOptionView> _answerOptionButtons;
      private Dictionary<CharacteristicType, CharacteristicView> _characteristicViews;
      
@@ -51,9 +53,14 @@ public class QuestionnaireView : MonoBehaviour
      {
           foreach (var characteristic in model.Characteristics)
           {
-               if (_characteristicViews.ContainsKey(characteristic.Type))
-                    _characteristicViews[characteristic.Type].SetData(characteristic.Data);
+               if (_characteristicViews.ContainsKey(characteristic.DataType))
+                    _characteristicViews[characteristic.DataType].SetData(characteristic.Data);
           }
+     }
+
+     public void SetMistakeView(bool active)
+     {
+          mistakeView.gameObject.SetActive(active);
      }
 
      [System.Serializable]
