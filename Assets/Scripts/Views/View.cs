@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Views
 {
-    public class ScreenView : MonoBehaviour
+    public class View : MonoBehaviour
     {
         public void SetActive(bool active)
         {

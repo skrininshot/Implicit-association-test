@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Views; // Если используете TextMeshPro, иначе using UnityEngine.UI;
 
-public class RaceQuestionnaireResultsView : ScreenView
+public class RaceQuestionnaireResultsView : View
 {
     [field: SerializeField] public Button ButtonAccept { get; private set; }
 

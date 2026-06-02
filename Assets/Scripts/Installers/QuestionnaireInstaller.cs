@@ -15,8 +15,8 @@ public class QuestionnaireInstaller : MonoInstaller
     {
         Container.BindInstance(new RaceQuestionnaireGenerator().Generate()).AsSingle();
         
-        Container.BindInterfacesTo<RaceCorrectAnswerChecker>();
-        Container.BindInterfacesTo<RaceQuestionnaireResultsHandler>();
+        Container.BindInterfacesTo<RaceCorrectAnswerChecker>().AsSingle();
+        Container.BindInterfacesTo<RaceQuestionnaireResultsHandler>().AsSingle();
 
         var timerModel = new TimerModel();
         Container.BindInterfacesTo<TimerController>().AsSingle().WithArguments(timerModel);

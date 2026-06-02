@@ -11,7 +11,7 @@ namespace Models
         public CharacteristicModel(string name, string type, string data, CharacteristicType dataType)
         {
             Name = name;
-            Type = name;
+            Type = type;
             Data = data;
             DataType = dataType;
         }

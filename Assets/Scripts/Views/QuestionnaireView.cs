@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using Models;
+using Services;
+using TMPro;
 using UnityEngine;
 using Views;
 
-public class QuestionnaireView : ScreenView
+public class QuestionnaireView : View
 {
      [SerializeField] private Transform buttonOptionsContainer;
      [SerializeField] private Transform characteristicsContainer;
@@ -12,7 +14,9 @@ public class QuestionnaireView : ScreenView
      [SerializeField] private ButtonOptionView buttonOptionViewPrefab;
      [SerializeField] private CharacteristicViewTypePrefab[] characteristicViewTypePrefabs;
 
+     [field: SerializeField] public PhaseTipPopupView PhaseTipPopupView { get; private set; }
      [SerializeField] private GameObject mistakeView;
+     [SerializeField] private TMP_Text phaseTipText;
      
      private Dictionary<AnswerOptionModel, ButtonOptionView> _answerOptionButtons;
      private Dictionary<CharacteristicType, CharacteristicView> _characteristicViews;
@@ -56,6 +60,11 @@ public class QuestionnaireView : ScreenView
                if (_characteristicViews.ContainsKey(characteristic.DataType))
                     _characteristicViews[characteristic.DataType].SetData(characteristic.Data);
           }
+     }
+
+     public void SetPhaseTip(string localizationTextKey)
+     {
+          phaseTipText.text = LocalizationService.GetValue(localizationTextKey);
      }
 
      public void SetMistakeView(bool active)

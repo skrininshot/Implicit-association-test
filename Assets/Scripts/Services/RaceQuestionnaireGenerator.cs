@@ -42,7 +42,7 @@ namespace Services
                 }
 
                 var phaseName = (i + 1).ToString();
-                phases[i] = new QuestionnairePhaseModel(phaseName, questions);
+                phases[i] = new QuestionnairePhaseModel(phaseName, $"race_phase{i}_instruction", questions);
             }
         
             AnswerOptionModel[] answerOptions =

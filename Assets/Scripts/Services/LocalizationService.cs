@@ -22,8 +22,6 @@ namespace Services
                 {
                     _localizedText[item.key] = item.value;
                 }
-                
-                Debug.Log($"Language loaded: {langCode}");
             }
             else
             {
