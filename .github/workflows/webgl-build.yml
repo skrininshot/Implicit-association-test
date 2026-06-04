@@ -1,4 +1,4 @@
-name: Build WebGL and Deploy
+name: Deploy WebGL to Pages
 
 on:
   push:
@@ -6,28 +6,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build WebGL
-        uses: game-ci/unity-builder@v4
-        with:
-          unityVersion: 2022.3.62f3
-          targetPlatform: WebGL
-          buildName: IAT
-          license: ${{ secrets.UNITY_LICENSE }}
-          activationType: personal
-
       - name: Create .nojekyll
-        run: touch build/WebGL/WebGL/.nojekyll
+        run: touch Build/WebGL/WebGL/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/WebGL/WebGL
+          publish_dir: Build/WebGL/WebGL
           publish_branch: gh-pages
           keep_files: false
