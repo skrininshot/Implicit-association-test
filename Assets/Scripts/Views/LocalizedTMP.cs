@@ -6,14 +6,10 @@ public class LocalizedTMP : MonoBehaviour
 {
     [SerializeField] private string localizationKey;
     [SerializeField] private TMP_Text text;
-
-    private void Awake()
-    {
-        UpdateText();
-    }
     
     private void OnEnable()
     {
+        UpdateText();
         LocalizationService.OnLanguageChanged += UpdateText;
     }
 
