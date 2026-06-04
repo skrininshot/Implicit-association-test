@@ -153,10 +153,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1938689299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 726.06, y: -26.049957}
+  m_SizeDelta: {x: 50, y: 52.099915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183077
 MonoBehaviour:
@@ -296,10 +296,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1938689299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 910, y: -26.049957}
+  m_SizeDelta: {x: 317.88, y: 52.099915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39798531
 MonoBehaviour:
@@ -2006,10 +2006,10 @@ RectTransform:
   - {fileID: 1097790042}
   m_Father: {fileID: 1938689299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1118.94, y: -26.049957}
+  m_SizeDelta: {x: 0, y: 52.099915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &843507181
 CanvasGroup:
@@ -2188,10 +2188,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1938689299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1093.94, y: -26.049957}
+  m_SizeDelta: {x: 50, y: 52.099915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873826274
 MonoBehaviour:
@@ -3514,10 +3514,10 @@ RectTransform:
   - {fileID: 99487606}
   m_Father: {fileID: 1938689299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 701.06, y: -26.049957}
+  m_SizeDelta: {x: 0, y: 52.099915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1698928972
 CanvasGroup:

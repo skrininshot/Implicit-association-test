@@ -13,7 +13,7 @@ namespace Models
     [System.Serializable]
     public class RaceQuestionnaireGenerationSettingsModel : IQuestionnaireGenerationSettings
     {
-        [field: SerializeField] public int questionsPerPhase = 25;
+        [field: SerializeField] public int questionsPerPhase = 28;
         [field: SerializeField] public int maxContinuousSameCharacteristicType = 3;
     }
 }
