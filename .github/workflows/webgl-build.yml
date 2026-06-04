@@ -12,22 +12,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Activate Unity license
-        uses: game-ci/unity-activate@v2
-        with:
-          unityLicense: ${{ secrets.UNITY_LICENSE }}
-
       - name: Build WebGL
         uses: game-ci/unity-builder@v4
         with:
           unityVersion: 2022.3.62f3
           targetPlatform: WebGL
           buildName: IAT
+          unityLicense: ${{ secrets.UNITY_LICENSE }}
 
       - name: Create .nojekyll
         run: touch build/WebGL/WebGL/.nojekyll
 
-      - name: Upload build artifact (optional)
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: WebGL-Build
