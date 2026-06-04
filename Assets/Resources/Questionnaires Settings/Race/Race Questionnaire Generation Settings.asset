@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Race Questionnaire Generation Settings
   m_EditorClassIdentifier: 
   settings:
-    questionsPerPhase: 28
+    questionsPerPhase: 40
     maxContinuousSameCharacteristicType: 3
