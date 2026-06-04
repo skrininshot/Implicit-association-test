@@ -4,6 +4,13 @@ namespace Models
 {
     public class PhaseAnswersModel
     {
+        public readonly PhaseModel Phase;
+        
+        public PhaseAnswersModel(PhaseModel phaseModel)
+        {
+            Phase = phaseModel;
+        }
+        
         private readonly List<QuestionAnswerModel> _questionsAnswers = new();
 
         public IReadOnlyCollection<QuestionAnswerModel> QuestionsAnswers => _questionsAnswers;

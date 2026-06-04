@@ -109,8 +109,8 @@
     { "key": "instruction_general", "value": "Нажимайте левую (<color=#ff00ff>ФИОЛЕТОВУЮ</color>) или правую (<color=#0ff>ГОЛУБУЮ</color>) кнопку в соответствии с категорией. Старайтесь отвечать быстро и точно." },
     { "key": "instruction_error", "value": "Ошибка! Нажата неверная кнопка. Пожалуйста, исправьтесь и продолжайте." },
 
-    { "key": "race_phase0_instruction", "value": "<align=\"center\">ЧАСТЬ 1 (лёгкий блок)</align>\n\n· Если видите БЕЛОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color> кнопку.\n\n· Если видите ЧЕРНОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
-    { "key": "race_phase1_instruction", "value": "<align=\"center\">ЧАСТЬ 2 (трудный блок)</align>\n\n· Если видите ЧЕРНОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color>.\n\n· Если видите БЕЛОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
+    { "key": "race_instruction_congruent", "value": "<align=\"center\">Блок 1</align>\n\n· Если видите БЕЛОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color>.\n\n· Если видите ЧЕРНОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
+    { "key": "race_instruction_incongruent", "value": "<align=\"center\">Блок 2</align>\n\n· Если видите ЧЕРНОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color>.\n\n· Если видите БЕЛОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
     
     { "key": "race_phase0_option_left", "value": "Фиолетовая: БЕЛЫЙ или ХОРОШЕЕ" },
     { "key": "race_phase0_option_right", "value": "Голубая: ЧЕРНЫЙ или ПЛОХОЕ" },

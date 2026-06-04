@@ -16,17 +16,19 @@ namespace Services
             if (raceSettings.questionsPerPhase % 4 != 0)
                 throw new ArgumentException("questionsPerPhase must be a multiple of 4 for equal proportions");
 
-            var phases = new QuestionnairePhaseModel[2];
+            var congruentPhase = CreatePhase(new PhaseModel("Congruent", "race_instruction_congruent"), raceSettings);
+            var incongruentPhase = CreatePhase(new PhaseModel("Incongruent", "race_instruction_incongruent"), raceSettings);
 
-            for (int i = 0; i < 2; i++)
+            var phases = new PhaseQuestions[2];
+            if (Random.Next(2) == 0)
             {
-                var questions = GeneratePhaseQuestions(i, raceSettings.questionsPerPhase, raceSettings.maxContinuousSameCharacteristicType);
-                var phaseName = i == 0 ? "Congruent" : "Incongruent";
-                phases[i] = new QuestionnairePhaseModel(
-                    phaseName,
-                    $"race_phase{i}_instruction",
-                    questions
-                );
+                phases[0] = congruentPhase;
+                phases[1] = incongruentPhase;
+            }
+            else
+            {
+                phases[0] = incongruentPhase;
+                phases[1] = congruentPhase;
             }
 
             var answerOptions = new[]
@@ -38,7 +40,13 @@ namespace Services
             return new QuestionnaireModel("race", answerOptions, phases);
         }
 
-        private QuestionModel[] GeneratePhaseQuestions(int phaseIndex, int questionsPerPhase, int maxContinuousSameType)
+        private PhaseQuestions CreatePhase(PhaseModel phase, RaceQuestionnaireGenerationSettingsModel settings)
+        {
+            var questions = GeneratePhaseQuestions(settings.questionsPerPhase, settings.maxContinuousSameCharacteristicType);
+            return new PhaseQuestions(phase, questions);
+        }
+        
+        private QuestionModel[] GeneratePhaseQuestions(int questionsPerPhase, int maxContinuousSameType)
         {
             int countPerCategory = questionsPerPhase / 4;
             
@@ -79,7 +87,7 @@ namespace Services
                     characteristic = new CharacteristicModel();
                     characteristic.Set("race", race, path, CharacteristicType.Image);
                 }
-                else // word
+                else
                 {
                     string polarity = cat == "positive_word" ? "positive" : "negative";
                     string key = GetRandomWord(polarity, lastWordKey);
@@ -156,9 +164,7 @@ namespace Services
             {
                 n--;
                 int k = Random.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                (list[k], list[n]) = (list[n], list[k]);
             }
         }
     }

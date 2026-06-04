@@ -5,15 +5,15 @@ namespace Services
 {
     public class RaceCorrectAnswerChecker : ICorrectAnswerChecker
     {
-        public bool IsCorrectAnswer(int phase, QuestionModel questionModel, AnswerOptionModel answerModel)
+        public bool IsCorrectAnswer(string phase, QuestionModel questionModel, AnswerOptionModel answerModel)
         {
             switch (phase)
             {
-                case 0: // congruent phase
+                case "Congruent": // congruent phase
                     return ((answerModel.Name == "left" && (questionModel.Characteristics[0].Type == "white" || questionModel.Characteristics[0].Type == "positive")) ||
                             (answerModel.Name == "right" && (questionModel.Characteristics[0].Type == "black" || questionModel.Characteristics[0].Type == "negative")));
                 
-                case 1: // incongruent phase
+                case "Incongruent": // incongruent phase
                     return ((answerModel.Name == "left" && (questionModel.Characteristics[0].Type == "black" || questionModel.Characteristics[0].Type == "positive")) || 
                             (answerModel.Name == "right" && (questionModel.Characteristics[0].Type == "white" || questionModel.Characteristics[0].Type == "negative")));
                 default:

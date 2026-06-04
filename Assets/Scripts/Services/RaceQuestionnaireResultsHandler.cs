@@ -11,8 +11,14 @@ public class RaceQuestionnaireResultsHandler : IQuestionnaireResultsHandler
         if (phases.PhasesAnswers.Count != 2)
             throw new ArgumentException("Must provide two number of phases");
 
-        var phase0 = phases.PhasesAnswers[0].QuestionsAnswers;
-        var phase1 = phases.PhasesAnswers[1].QuestionsAnswers;
+        var congruentPhase = phases.PhasesAnswers.FirstOrDefault(p => p.Phase.Name == "Congruent");
+        var incongruentPhase = phases.PhasesAnswers.FirstOrDefault(p => p.Phase.Name == "Incongruent");
+
+        if (congruentPhase == null || incongruentPhase == null)
+            throw new InvalidOperationException("Не найдены обе фазы IAT");
+
+        var phase0 = congruentPhase.QuestionsAnswers;
+        var phase1 = incongruentPhase.QuestionsAnswers;
         
         const double minTime = 0.3;
         const double maxTime = 3.0;

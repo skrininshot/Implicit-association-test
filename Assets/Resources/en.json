@@ -112,8 +112,8 @@
     { "key": "instruction_general", "value": "Press the left (<color=#ff00ff>PURPLE</color>) or right (<color=#0ff>BLUE</color>) button according to the category. Try to answer quickly and accurately." },
     { "key": "instruction_error", "value": "Error! Wrong button pressed. Please correct yourself and continue." },
 
-    { "key": "race_phase1_instruction", "value": "<align=\"center\">PART 1 (easy block)</align>\n\n· If you see a WHITE face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a BLACK face or a BAD word — press the <color=#0ff>BLUE</color> button." },
-    { "key": "race_phase2_instruction", "value": "<align=\"center\">PART 2 (hard block)</align>\n\n· If you see a BLACK face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a WHITE face or a BAD word — press the <color=#0ff>BLUE</color> button." }
+    { "key": "race_instruction_congruent", "value": "<align=\"center\">PART 1</align>\n\n· If you see a WHITE face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a BLACK face or a BAD word — press the <color=#0ff>BLUE</color> button." },
+    { "key": "race_instruction_incongruent", "value": "<align=\"center\">PART 2</align>\n\n· If you see a BLACK face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a WHITE face or a BAD word — press the <color=#0ff>BLUE</color> button." }
   ,
     { "key": "race_phase1_option_left", "value": "Purple: WHITE or GOOD" },
     { "key": "race_phase1_option_right", "value": "Blue: BLACK or BAD" },

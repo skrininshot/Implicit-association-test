@@ -58,7 +58,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
         _welcomeView.ButtonAccept.onClick.AddListener(OnWelcomeButtonClicked);
         _resultsView.ButtonAccept.onClick.AddListener(OnResultsButtonClicked);
 
-        _currentPhaseAnswers = new();
+        _currentPhaseAnswers = new(_model.Phases[_currentPhase].Phase);
         
         SwitchState(State.Welcome);
     }
@@ -103,7 +103,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
                 _phasesQuestionsAnswersModel.Reset();
                 _currentPhase = 0;
                 _currentQuestion = 0;
-                _currentPhaseAnswers = new();
+                _currentPhaseAnswers = new(_model.Phases[_currentPhase].Phase);
                break;
             
             case State.Questionnaire:
@@ -113,7 +113,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
                 break;
             
             case State.PhaseTip:
-                _phaseTipView.SetTip(_model.Phases[_currentPhase].TipLocalizationKey);
+                _phaseTipView.SetTip(_model.Phases[_currentPhase].Phase.TipLocalizationKey);
                 break;
             
             case State.Results:
@@ -130,7 +130,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     
     void OnOptionButtonOptionClicked(AnswerOptionModel answerOption)
     {
-        if (_correctAnswerChecker.IsCorrectAnswer(_currentPhase, DisplayingQuestion, answerOption))
+        if (_correctAnswerChecker.IsCorrectAnswer(_model.Phases[_currentPhase].Phase.Name, DisplayingQuestion, answerOption))
         {
             int phaseQuestionsCount = _model.Phases[_currentPhase].Questions.Length - 1;
             
@@ -142,9 +142,9 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
 
                 if (_currentPhase < _model.Phases.Length - 1)
                 {
-                    _currentPhaseAnswers = new();
-                    _currentQuestion = 0;
                     _currentPhase++;
+                    _currentPhaseAnswers = new(_model.Phases[_currentPhase].Phase);
+                    _currentQuestion = 0;
 
                     SwitchState(State.PhaseTip);
                 }
@@ -177,7 +177,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     void UpdateQuestionView()
     {
         SetMistakeView(false);
-        _questionnaireView.UpdatePhaseTip(_model.Phases[_currentPhase].TipLocalizationKey);
+        _questionnaireView.UpdatePhaseTip(_model.Phases[_currentPhase].Phase.TipLocalizationKey);
         _questionnaireView.SetQuestionView(DisplayingQuestion);
     }
 

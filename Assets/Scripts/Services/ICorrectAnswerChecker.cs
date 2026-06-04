@@ -4,6 +4,6 @@ namespace Services
 {
     public interface ICorrectAnswerChecker
     {
-        public bool IsCorrectAnswer(int phase, QuestionModel questionModel, AnswerOptionModel answerModel);
+        public bool IsCorrectAnswer(string phaseName, QuestionModel questionModel, AnswerOptionModel answerModel);
     }
 }
