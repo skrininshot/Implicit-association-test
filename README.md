@@ -26,7 +26,7 @@ Unity-based IAT application. Currently implements the Race IAT, measuring automa
 4. Press Play for editor testing; build WebGL for browser.
 
 ## Adding New Tests
-1. Implement `IQuestionnaireGenerator`, `ICorrectAnswerChecker` and `IResultsHandler` for the new IAT variant.
+1. Implement `IQuestionnaireResultsModel`, `IQuestionnaireGenerationSettings`, `IQuestionnaireGenerator`, `ICorrectAnswerChecker` and `IResultsHandler` for the new IAT variant.
 2. Add localization keys for instructions and results.
 3. Register in Zenject container. Core MVC and localization require no changes.
 
