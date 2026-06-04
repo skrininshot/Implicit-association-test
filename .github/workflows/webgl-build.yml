@@ -15,7 +15,7 @@ jobs:
       - name: Build WebGL
         uses: game-ci/unity-builder@v4
         with:
-          unityVersion: 2022.3.62f3
+          unityVersion: 2022.3.62f1
           targetPlatform: WebGL
           buildName: IAT
           license: ${{ secrets.UNITY_LICENSE }}
