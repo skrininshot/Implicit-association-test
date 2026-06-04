@@ -31,8 +31,8 @@ namespace Services
 
             var answerOptions = new[]
             {
-                new AnswerOptionModel("left", Color.magenta, string.Empty),
-                new AnswerOptionModel("right", Color.cyan, string.Empty)
+                new AnswerOptionModel("left", Color.magenta, string.Empty, KeyCode.Q),
+                new AnswerOptionModel("right", Color.cyan, string.Empty, KeyCode.E)
             };
 
             return new QuestionnaireModel("race", answerOptions, phases);
