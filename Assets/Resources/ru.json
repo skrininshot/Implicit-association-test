@@ -109,8 +109,8 @@
     { "key": "instruction_general", "value": "Нажимайте левую (<color=#ff00ff>ФИОЛЕТОВУЮ</color>) или правую (<color=#0ff>ГОЛУБУЮ</color>) кнопку в соответствии с категорией. Старайтесь отвечать быстро и точно." },
     { "key": "instruction_error", "value": "Ошибка! Нажата неверная кнопка. Пожалуйста, исправьтесь и продолжайте." },
 
-    { "key": "race_phase0_instruction", "value": "<align=\"center\">ЧАСТЬ 1</align>\n\n· Если видите БЕЛОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color> кнопку.\n\n· Если видите ЧЕРНОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
-    { "key": "race_phase1_instruction", "value": "<align=\"center\">ЧАСТЬ 2</align>\n\n· Если видите ЧЕРНОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color>.\n\n· Если видите БЕЛОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
+    { "key": "race_phase0_instruction", "value": "<align=\"center\">ЧАСТЬ 1 (лёгкий блок)</align>\n\n· Если видите БЕЛОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color> кнопку.\n\n· Если видите ЧЕРНОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
+    { "key": "race_phase1_instruction", "value": "<align=\"center\">ЧАСТЬ 2 (трудный блок)</align>\n\n· Если видите ЧЕРНОЕ лицо или ХОРОШЕЕ слово — жмите <color=#ff00ff>ФИОЛЕТОВУЮ</color>.\n\n· Если видите БЕЛОЕ лицо или ПЛОХОЕ слово — жмите <color=#0ff>ГОЛУБУЮ</color>." },
     
     { "key": "race_phase0_option_left", "value": "Фиолетовая: БЕЛЫЙ или ХОРОШЕЕ" },
     { "key": "race_phase0_option_right", "value": "Голубая: ЧЕРНЫЙ или ПЛОХОЕ" },
@@ -118,9 +118,9 @@
     { "key": "race_phase1_option_left", "value": "Фиолетовая: ЧЕРНЫЙ или ХОРОШЕЕ" },
     { "key": "race_phase1_option_right", "value": "Голубая: БЕЛЫЙ или ПЛОХОЕ" },
 
-    { "key": "race_result_interpretation_white", "value": "Автоматическое предпочтение людей с белым цветом кожи." },
-    { "key": "race_result_interpretation_black", "value": "Автоматическое предпочтение людей с чёрным цветом кожи." },
-    { "key": "race_result_interpretation_neutral", "value": "Нет выраженной автоматической предпочтительности." },
+    { "key": "race_result_interpretation_white", "value": "Интерпретация: Автоматическое предпочтение людей с белым цветом кожи." },
+    { "key": "race_result_interpretation_black", "value": "Интерпретация: Автоматическое предпочтение людей с чёрным цветом кожи." },
+    { "key": "race_result_interpretation_neutral", "value": "Интерпретация: Нет выраженной автоматической предпочтительности." },
 
     { "key": "race_result_dscore", "value": "Индекс неосознанной установки (D)" },
     { "key": "race_result_dscore_not_enought", "value": "Недостаточно данных для расчёта D-показателя" },
@@ -128,6 +128,11 @@
     { "key": "race_result_accuracy_phase_0", "value": "Правильность ответов (лёгкий блок)" },
     { "key": "race_result_accuracy_phase_1", "value": "Правильность ответов (трудный блок)" },
 
+    { "key": "race_result_dscore_description", "value": "Индекс D измеряет силу неосознанной ассоциации. Значения >0,15 указывают на предпочтение белых, < –0,15 — на предпочтение чёрных, в промежутке — нейтрально." },
+    { "key": "race_result_avg_latency_description", "value": "На сколько медленнее вы отвечали во втором блоке по сравнению с первым. Положительное значение означает замедление при непривычных сочетаниях." },
+    { "key": "race_result_accuracy_description", "value": "Доля правильных ответов. Высокая точность подтверждает старание, а ошибки могут указывать на трудности с подавлением автоматических реакций." },
+    { "key": "race_result_interpretation_description", "value": "Эта интерпретация основана исключительно на скорости реакций и не оценивает ваши убеждения или личность." },
+    
     { "key": "questionnaire_results", "value": "Итоги" }
   ]
 }

@@ -20,6 +20,8 @@ public class QuestionnaireView : View
      private Dictionary<CharacteristicType, CharacteristicView> _characteristicViews;
      
      public IReadOnlyDictionary<AnswerOptionModel, ButtonOptionView> AnswerOptionButtons => _answerOptionButtons;
+
+     private string _phaseLocalizationTextKey;
      
      public void Initialize(AnswerOptionModel[] answerOptions)
      {
@@ -68,9 +70,25 @@ public class QuestionnaireView : View
           }
      }
 
-     public void SetPhaseTip(string localizationTextKey)
+     private void OnEnable()
      {
-          phaseTipText.text = LocalizationService.GetValue(localizationTextKey);
+          LocalizationService.OnLanguageChanged += UpdateTip;
+     }
+
+     private void OnDisable()
+     {
+          LocalizationService.OnLanguageChanged -= UpdateTip;
+     }
+
+     private void UpdateTip()
+     {
+          phaseTipText.text = LocalizationService.GetValue(_phaseLocalizationTextKey);
+     }
+
+     public void UpdatePhaseTip(string localizationTextKey)
+     {
+          _phaseLocalizationTextKey = localizationTextKey;
+          UpdateTip();
      }
 
      public void SetMistakeView(bool active)

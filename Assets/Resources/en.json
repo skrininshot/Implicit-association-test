@@ -112,8 +112,8 @@
     { "key": "instruction_general", "value": "Press the left (<color=#ff00ff>PURPLE</color>) or right (<color=#0ff>BLUE</color>) button according to the category. Try to answer quickly and accurately." },
     { "key": "instruction_error", "value": "Error! Wrong button pressed. Please correct yourself and continue." },
 
-    { "key": "race_phase1_instruction", "value": "<align=\"center\">PART 1</align>\n\n· If you see a WHITE face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a BLACK face or a BAD word — press the <color=#0ff>BLUE</color> button." },
-    { "key": "race_phase2_instruction", "value": "<align=\"center\">PART 2</align>\n\n· If you see a BLACK face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a WHITE face or a BAD word — press the <color=#0ff>BLUE</color> button." }
+    { "key": "race_phase1_instruction", "value": "<align=\"center\">PART 1 (easy block)</align>\n\n· If you see a WHITE face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a BLACK face or a BAD word — press the <color=#0ff>BLUE</color> button." },
+    { "key": "race_phase2_instruction", "value": "<align=\"center\">PART 2 (hard block)</align>\n\n· If you see a BLACK face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a WHITE face or a BAD word — press the <color=#0ff>BLUE</color> button." }
   ,
     { "key": "race_phase1_option_left", "value": "Purple: WHITE or GOOD" },
     { "key": "race_phase1_option_right", "value": "Blue: BLACK or BAD" },
@@ -121,9 +121,9 @@
     { "key": "race_phase2_option_left", "value": "Purple: BLACK or GOOD" },
     { "key": "race_phase2_option_right", "value": "Blue: WHITE or BAD" },
 
-    { "key": "race_result_interpretation_white", "value": "Automatic preference for people with white skin color." },
-    { "key": "race_result_interpretation_black", "value": "Automatic preference for people with black skin color." },
-    { "key": "race_result_interpretation_neutral", "value": "No significant automatic preference." },
+    { "key": "race_result_interpretation_white", "value": "Interpretation: Automatic preference for people with white skin color." },
+    { "key": "race_result_interpretation_black", "value": "Interpretation: Automatic preference for people with black skin color." },
+    { "key": "race_result_interpretation_neutral", "value": "Interpretation: No significant automatic preference." },
 
     { "key": "race_result_dscore", "value": "Implicit Association Index (D)" },
     { "key": "race_result_dscore_not_enought", "value": "Not enough data to calculate D-score" },
@@ -131,6 +131,11 @@
     { "key": "race_result_accuracy_phase_0", "value": "Accuracy (easy block)" },
     { "key": "race_result_accuracy_phase_1", "value": "Accuracy (hard block)" },
 
+    { "key": "race_result_dscore_description", "value": "The D-index measures the strength of implicit association. Values >0.15 indicate a preference for white, < –0.15 for black, and in between — no strong preference." },
+    { "key": "race_result_avg_latency_description", "value": "How much slower you responded in the second block compared to the first. A positive value indicates slowing when rules became unfamiliar." },
+    { "key": "race_result_accuracy_description", "value": "Share of correct responses. High accuracy shows you were careful, while errors may indicate difficulty suppressing automatic reactions." },
+    { "key": "race_result_interpretation_description", "value": "This interpretation is based solely on reaction speeds and does not judge your beliefs or character." },
+    
     { "key": "questionnaire_results", "value": "Results" }
   ]
 }

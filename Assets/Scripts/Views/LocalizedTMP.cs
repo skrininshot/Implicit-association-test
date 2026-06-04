@@ -9,6 +9,21 @@ public class LocalizedTMP : MonoBehaviour
 
     private void Awake()
     {
+        UpdateText();
+    }
+    
+    private void OnEnable()
+    {
+        LocalizationService.OnLanguageChanged += UpdateText;
+    }
+
+    private void OnDisable()
+    {
+        LocalizationService.OnLanguageChanged -= UpdateText;
+    }
+
+    private void UpdateText()
+    {
         text.text = LocalizationService.GetValue(localizationKey);
     }
 }

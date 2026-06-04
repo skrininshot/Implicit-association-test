@@ -177,7 +177,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     void UpdateQuestionView()
     {
         SetMistakeView(false);
-        _questionnaireView.SetPhaseTip(_model.Phases[_currentPhase].TipLocalizationKey);
+        _questionnaireView.UpdatePhaseTip(_model.Phases[_currentPhase].TipLocalizationKey);
         _questionnaireView.SetQuestionView(DisplayingQuestion);
     }
 

@@ -1,4 +1,3 @@
-using System;
 using Services;
 using TMPro;
 using UnityEngine;
@@ -11,9 +10,28 @@ namespace Views
         [SerializeField] private TMP_Text text;
         [field: SerializeField] public Button AcceptButton { get; private set; }
 
+        private string _tipLocalizationKey;
+        
         public void SetTip(string localizationTextKey)
         {
-            text.text = LocalizationService.GetValue(localizationTextKey);
+            _tipLocalizationKey = localizationTextKey;
+            UpdateTip();
+        }
+        
+        private void OnEnable()
+        {
+            LocalizationService.OnLanguageChanged += UpdateTip;
+        }
+
+        private void OnDisable()
+        {
+            LocalizationService.OnLanguageChanged -= UpdateTip;
+        }
+
+        private void UpdateTip()
+        {
+            text.text = LocalizationService.GetValue(_tipLocalizationKey);
+
         }
     }
 }
