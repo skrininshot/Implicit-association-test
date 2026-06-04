@@ -12,28 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Unity
-        uses: game-ci/unity-setup@v2
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4
         with:
           unityVersion: 2022.3.62f3
-
-      - name: Activate Unity License
-        run: |
-          echo "$UNITY_LICENSE" | base64 --decode > /tmp/Unity_lic.ulf
-          mkdir -p /root/.config/unity3d/Unity
-          cp /tmp/Unity_lic.ulf /root/.config/unity3d/Unity/Unity_lic.ulf
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-
-      - name: Build WebGL
-        run: |
-          unity-editor -batchmode -quit -nographics \
-            -projectPath . \
-            -buildTarget WebGL \
-            -executeMethod BuildCommand.BuildWebGL \
-            -logFile - || true
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          targetPlatform: WebGL
+          buildName: IAT
+          license: ${{ secrets.UNITY_LICENSE }}
+          activationType: personal
 
       - name: Create .nojekyll
         run: touch build/WebGL/WebGL/.nojekyll
