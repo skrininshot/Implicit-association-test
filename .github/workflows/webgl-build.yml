@@ -5,12 +5,28 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Ensure gh-pages branch exists
+        run: |
+          git fetch origin gh-pages 2>/dev/null || (
+            git checkout --orphan gh-pages &&
+            git rm -rf . &&
+            git commit --allow-empty -m "Init gh-pages" &&
+            git push origin gh-pages
+          ) || true
 
       - name: Create .nojekyll
         run: touch Build/WebGL/WebGL/.nojekyll
@@ -22,3 +38,4 @@ jobs:
           publish_dir: Build/WebGL/WebGL
           publish_branch: gh-pages
           keep_files: false
+          force_orphan: true
