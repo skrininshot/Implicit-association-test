@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Models
 {
-    public class QuestionsAnswersModel
+    public class PhaseAnswersModel
     {
         private readonly List<QuestionAnswerModel> _questionsAnswers = new();
 

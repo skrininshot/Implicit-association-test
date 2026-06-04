@@ -1,67 +1,114 @@
 using Models;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Services
 {
     public class RaceQuestionnaireGenerator : IQuestionnaireGenerator
     {
-        public QuestionnaireModel Generate()
+        private static readonly System.Random Random = new();
+        
+        public QuestionnaireModel Generate(IQuestionnaireGenerationSettings settings)
         {
-            int phaseCount = 2;
-            int questionPerPhaseCount = 25;
-                
+            var raceSettings = settings as RaceQuestionnaireGenerationSettingsModel;
+            
             var phases = new QuestionnairePhaseModel[2];
 
-            for (int i = 0; i < phaseCount; i++)
+            for (int i = 0; i < 2; i++)
             {
-                QuestionModel[] questions = new QuestionModel[questionPerPhaseCount];
-            
-                for (int j = 0; j < questionPerPhaseCount; j++)
-                {
-                    bool isWhite = new Random().Next(1) == 1;
-                    int humanIndex = new Random().Next(1, 50);
-                    
-                    bool isPositiveWord = new Random().Next(1) == 1;
-                    int wordIndex = new Random().Next(1, 50);
+                var questions = GeneratePhaseQuestions(i, raceSettings.questionsPerPhase, raceSettings.maxContinuousSameCharacteristicType);
+                var phaseName = i == 0 ? "Congruent" : "Incongruent";
+                phases[i] = new QuestionnairePhaseModel(
+                    phaseName,
+                    $"race_phase{i}_instruction",
+                    questions
+                );
+            }
 
-                    var raceName = isWhite ? "white" : "black";
-                    var wordPolarity = isPositiveWord ? "positive" : "negative";
-                    
-                    var imagePath = $"hm_{raceName}_{humanIndex}";
-                    var textPath = $"ambivalent_word_{wordPolarity}_{wordIndex}";
+            var answerOptions = new[]
+            {
+                new AnswerOptionModel("left", Color.magenta, string.Empty),
+                new AnswerOptionModel("right", Color.cyan, string.Empty)
+            };
 
-                    CharacteristicModel[] characteristicModel =
-                    {
-                        new ("race", raceName, imagePath, CharacteristicType.Image),
-                        new ("word", wordPolarity, textPath, CharacteristicType.Text)
-                    };
+            return new QuestionnaireModel("race", answerOptions, phases);
+        }
+
+        private QuestionModel[] GeneratePhaseQuestions(int phaseIndex, int questionsPerPhase, int maxContinuousSameType)
+        {
+            var questions = new QuestionModel[questionsPerPhase];
+
+            bool prevIsWord = false;
+            int consecutiveSameType = 0;
+            string lastWordKey = null;
+            string lastImagePath = null;
+
+            for (int j = 0; j < questionsPerPhase; j++)
+            {
+                bool isWord = Random.Next(2) == 1;
                 
-                    var questionModel = new QuestionModel(characteristicModel);
-                    questions[j] = questionModel;
+                if (isWord == prevIsWord)
+                    consecutiveSameType++;
+                else
+                    consecutiveSameType = 1;
+
+                if (consecutiveSameType > maxContinuousSameType)
+                {
+                    isWord = !isWord;
+                    consecutiveSameType = 1;
                 }
 
-                var phaseName = (i + 1).ToString();
-                phases[i] = new QuestionnairePhaseModel(phaseName, $"race_phase{i}_instruction", questions);
+                CharacteristicModel characteristic;
+
+                if (isWord)
+                {
+                    string key, polarity;
+                    do
+                    {
+                        (key, polarity) = GetRandomWord();
+                    } while (key == lastWordKey);
+
+                    lastWordKey = key;
+                    lastImagePath = null;
+                    characteristic = new CharacteristicModel();
+                    characteristic.Set("word", polarity, key, CharacteristicType.Text);
+                }
+                else
+                {
+                    string path, race;
+                    do
+                    {
+                        (path, race) = GetRandomFace();
+                    } while (path == lastImagePath);
+
+                    lastImagePath = path;
+                    lastWordKey = null;
+                    characteristic = new CharacteristicModel();
+                    characteristic.Set("race", race, path, CharacteristicType.Image);
+                }
+
+                questions[j] = new QuestionModel(new[] { characteristic });
+                prevIsWord = isWord;
             }
-        
-            AnswerOptionModel[] answerOptions =
-            {
-                new 
-                (
-                    "left", 
-                    Color.magenta,
-                    string.Empty
-                ),
-                new 
-                (
-                    "right", 
-                    Color.cyan,
-                    string.Empty
-                )
-            };
-            
-            return new ("race", answerOptions, phases);
+
+            return questions;
+        }
+
+        private (string key, string polarity) GetRandomWord()
+        {
+            bool positive = Random.Next(2) == 1;
+            int index = Random.Next(1, 51);
+            string polarity = positive ? "positive" : "negative";
+            string key = $"ambivalent_word_{polarity}_{index}";
+            return (key, polarity);
+        }
+
+        private (string path, string race) GetRandomFace()
+        {
+            bool isWhite = Random.Next(2) == 1;
+            int index = Random.Next(1, 51);
+            string race = isWhite ? "white" : "black";
+            string path = $"hm_{race}_{index}";
+            return (path, race);
         }
     }
 }

@@ -9,11 +9,13 @@ public class QuestionnaireInstaller : MonoInstaller
 {
     [SerializeField] private QuestionnaireWelcomeView welcomeView;
     [SerializeField] private QuestionnaireView questionnaireView;
+    [SerializeField] private PhaseTipView phaseTipView;
     [SerializeField] private RaceQuestionnaireResultsView resultsView;
-
+    [SerializeField] private QuestionnaireGenerationSettings generationSettings;
+    
     public override void InstallBindings()
     {
-        Container.BindInstance(new RaceQuestionnaireGenerator().Generate()).AsSingle();
+        Container.BindInstance(new RaceQuestionnaireGenerator().Generate(generationSettings.Get())).AsSingle();
         
         Container.BindInterfacesTo<RaceCorrectAnswerChecker>().AsSingle();
         Container.BindInterfacesTo<RaceQuestionnaireResultsHandler>().AsSingle();
@@ -23,6 +25,6 @@ public class QuestionnaireInstaller : MonoInstaller
         
         var phasesQuestionsAnswersModel = new PhasesQuestionsAnswersModel();
         
-        Container.BindInterfacesTo<QuestionnaireController>().AsSingle().WithArguments(welcomeView, resultsView, questionnaireView, timerModel, phasesQuestionsAnswersModel);
+        Container.BindInterfacesTo<QuestionnaireController>().AsSingle().WithArguments(welcomeView, resultsView, phaseTipView, questionnaireView, timerModel, phasesQuestionsAnswersModel);
     }
 }

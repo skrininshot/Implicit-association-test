@@ -1,7 +1,7 @@
 {
   "items": [
     { "key": "wrong_option_message", "value": "Incorrect option choice!" },
-    { "key": "race_welcome_test", "value": "<b>Categorization Speed Test</b>\n\nYou are about to complete a task that requires quickly sorting images and words into two categories.\nFaces and words will appear on the screen, and you should press the left (purple) or right (blue) button according to the current rule.\nThe test has two parts. The rules in the first part differ from those in the second part — please read the instructions carefully before each part.\n<b>How to respond:</b>\n· Respond as quickly as possible, trust your first instinct.\n· Try to avoid mistakes, but if you make one, simply press the correct button and continue.\n· Do not linger on a single answer; maintaining a fast pace is important.\nAt the end, your result will be displayed.\n\nPress “Start” when you are ready." },
+    { "key": "race_welcome_test", "value": "<align=\"center\"><b><size=135%>Categorization Speed Test</size></b></align>\n\nYou are about to complete a task that requires quickly sorting images and words into two categories.\nFaces and words will appear on the screen, and you should press the left (<color=#ff00ff>PURPLE</color>) or right (<color=#0ff>BLUE</color>) button according to the current rule.\nThe test has two parts. The rules in the first part differ from those in the second part — please read the instructions carefully before each part.\n\n<align=\"center\"><b><size=115%>How to respond:</size></b></align>\n\n· Respond as quickly as possible, trust your first instinct.\n· Try to avoid mistakes, but if you make one, simply press the correct button and continue.\n· Do not linger on a single answer; maintaining a fast pace is important.\n\n<align=\"center\">At the end, your result will be displayed.\n\n<b><size=110%>Press “Start” when you are ready.</size></b></align>" },    { "key": "start_test_button_text", "value": "Start" },
     { "key": "start_test_button_text", "value": "Start" },
     { "key": "accept_button_text", "value": "Accept" },
     
@@ -108,13 +108,13 @@
     { "key": "ambivalent_word_negative_48", "value": "Chaos" },
     { "key": "ambivalent_word_negative_49", "value": "Poison" },
     { "key": "ambivalent_word_negative_50", "value": "Trouble" },
-
-    { "key": "instruction_general", "value": "Press the left (purple) or right (blue) button according to the category. Try to answer quickly and accurately." },
+    
+    { "key": "instruction_general", "value": "Press the left (<color=#ff00ff>PURPLE</color>) or right (<color=#0ff>BLUE</color>) button according to the category. Try to answer quickly and accurately." },
     { "key": "instruction_error", "value": "Error! Wrong button pressed. Please correct yourself and continue." },
 
-    { "key": "race_phase1_instruction", "value": "Part 1. If you see a WHITE face or a GOOD word — press the PURPLE button. If you see a BLACK face or a BAD word — press the BLUE button." },
-    { "key": "race_phase2_instruction", "value": "Part 2. Attention! The rules have now changed. If you see a BLACK face or a GOOD word — press PURPLE. If you see a WHITE face or a BAD word — press BLUE." },
-
+    { "key": "race_phase1_instruction", "value": "<align=\"center\">PART 1</align>\n\n· If you see a WHITE face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a BLACK face or a BAD word — press the <color=#0ff>BLUE</color> button." },
+    { "key": "race_phase2_instruction", "value": "<align=\"center\">PART 2</align>\n\n· If you see a BLACK face or a GOOD word — press the <color=#ff00ff>PURPLE</color> button.\n\n· If you see a WHITE face or a BAD word — press the <color=#0ff>BLUE</color> button." }
+  ,
     { "key": "race_phase1_option_left", "value": "Purple: WHITE or GOOD" },
     { "key": "race_phase1_option_right", "value": "Blue: BLACK or BAD" },
 
@@ -129,6 +129,8 @@
     { "key": "race_result_dscore_not_enought", "value": "Not enough data to calculate D-score" },
     { "key": "race_result_average_latency", "value": "Average Latency" },
     { "key": "race_result_accuracy_phase_0", "value": "Accuracy (easy block)" },
-    { "key": "race_result_accuracy_phase_1", "value": "Accuracy (hard block)" }
+    { "key": "race_result_accuracy_phase_1", "value": "Accuracy (hard block)" },
+
+    { "key": "questionnaire_results", "value": "Results" }
   ]
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Views
 {
-    public class PhaseTipPopupView : View
+    public class PhaseTipView : View
     {
         [SerializeField] private TMP_Text text;
         [field: SerializeField] public Button AcceptButton { get; private set; }

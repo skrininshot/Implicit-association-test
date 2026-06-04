@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Models;
 using Services;
@@ -14,7 +13,6 @@ public class QuestionnaireView : View
      [SerializeField] private ButtonOptionView buttonOptionViewPrefab;
      [SerializeField] private CharacteristicViewTypePrefab[] characteristicViewTypePrefabs;
 
-     [field: SerializeField] public PhaseTipPopupView PhaseTipPopupView { get; private set; }
      [SerializeField] private GameObject mistakeView;
      [SerializeField] private TMP_Text phaseTipText;
      
@@ -55,10 +53,18 @@ public class QuestionnaireView : View
 
      public void SetQuestionView(QuestionModel model)
      {
+          foreach (var characteristicViews in _characteristicViews)
+          {
+               characteristicViews.Value.gameObject.SetActive(false);
+          }    
+          
           foreach (var characteristic in model.Characteristics)
           {
                if (_characteristicViews.ContainsKey(characteristic.DataType))
+               {
+                    _characteristicViews[characteristic.DataType].gameObject.SetActive(true);
                     _characteristicViews[characteristic.DataType].SetData(characteristic.Data);
+               }
           }
      }
 

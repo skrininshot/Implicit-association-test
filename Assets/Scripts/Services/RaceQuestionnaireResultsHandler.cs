@@ -8,22 +8,22 @@ public class RaceQuestionnaireResultsHandler : IQuestionnaireResultsHandler
 {
     public IQuestionnaireResultsModel GetResults(PhasesQuestionsAnswersModel phases)
     {
-        if (phases.Phases.Count != 2)
+        if (phases.PhasesAnswers.Count != 2)
             throw new ArgumentException("Must provide two number of phases");
 
-        var phase0 = phases.Phases[0].QuestionsAnswers;
-        var phase1 = phases.Phases[1].QuestionsAnswers;
+        var phase0 = phases.PhasesAnswers[0].QuestionsAnswers;
+        var phase1 = phases.PhasesAnswers[1].QuestionsAnswers;
         
         const double minTime = 0.3;
         const double maxTime = 3.0;
         
         var correctTimesPhase0 = phase0
-            .Where(q => q.Time >= minTime && q.Time <= maxTime)
+            .Where(q => q.IsCorrect && q.Time >= minTime && q.Time <= maxTime)
             .Select(q => q.Time)
             .ToList();
 
         var correctTimesPhase1 = phase1
-            .Where(q => q.Time >= minTime && q.Time <= maxTime)
+            .Where(q => q.IsCorrect && q.Time >= minTime && q.Time <= maxTime)
             .Select(q => q.Time)
             .ToList();
         

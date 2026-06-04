@@ -9,6 +9,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
 {
     private readonly QuestionnaireWelcomeView _welcomeView;
     private readonly RaceQuestionnaireResultsView _resultsView;
+    private readonly PhaseTipView _phaseTipView;
     private readonly QuestionnaireView _questionnaireView;
     
     private readonly TimerModel _timer;
@@ -20,19 +21,21 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     
     private int _currentPhase;
     private int _currentQuestion;
+    private bool _isCorrect = true;
     
     private QuestionModel DisplayingQuestion => _model.Phases[_currentPhase].Questions[_currentQuestion];
 
-    private QuestionsAnswersModel _currentPhaseAnswers;
+    private PhaseAnswersModel _currentPhaseAnswers;
     
     private State _state;
     
-    public QuestionnaireController(QuestionnaireWelcomeView welcomeView, RaceQuestionnaireResultsView resultsView, QuestionnaireView questionnaireView, 
+    public QuestionnaireController(QuestionnaireWelcomeView welcomeView, RaceQuestionnaireResultsView resultsView, PhaseTipView phaseTipView, QuestionnaireView questionnaireView, 
         TimerModel timer, PhasesQuestionsAnswersModel phasesQuestionsAnswersModel, QuestionnaireModel model, 
         ICorrectAnswerChecker correctAnswerChecker, IQuestionnaireResultsHandler resultsHandler)
     {
         _welcomeView = welcomeView;
         _resultsView = resultsView;
+        _phaseTipView = phaseTipView;
         _questionnaireView = questionnaireView;
         _timer = timer;
         _model = model;
@@ -44,7 +47,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     public void Initialize()
     {
         _questionnaireView.Initialize(_model.AnswerOptions);
-        _questionnaireView.PhaseTipPopupView.AcceptButton.onClick.AddListener(PhaseTipPopupButtonClicked);
+        _phaseTipView.AcceptButton.onClick.AddListener(PhaseTipPopupButtonClicked);
 
         foreach (var answerOptionButton in _questionnaireView.AnswerOptionButtons)
         {
@@ -62,7 +65,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
 
     public void Dispose()
     {
-        _questionnaireView.PhaseTipPopupView.AcceptButton.onClick.RemoveListener(PhaseTipPopupButtonClicked);
+        _phaseTipView.AcceptButton.onClick.RemoveListener(PhaseTipPopupButtonClicked);
         
         foreach (var answerOptionButton in _questionnaireView.AnswerOptionButtons)
         {
@@ -77,7 +80,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
 
     void OnWelcomeButtonClicked()
     {
-        SwitchState(State.QuestionnaireTipPopup);
+        SwitchState(State.PhaseTip);
     }
     
     void OnResultsButtonClicked()
@@ -90,26 +93,27 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
         _state = newState;
         
         _welcomeView.SetActive(_state == State.Welcome);
-        _questionnaireView.SetActive(_state == State.Questionnaire || _state == State.QuestionnaireTipPopup);
+        _questionnaireView.SetActive(_state == State.Questionnaire);
+        _phaseTipView.SetActive(_state == State.PhaseTip);
         _resultsView.SetActive(_state == State.Results);
         
         switch (_state)
         {
             case State.Welcome:
-                _questionnaireView.SetMistakeView(false);
                 _phasesQuestionsAnswersModel.Reset();
-                _currentQuestion = 0;
                 _currentPhase = 0;
+                _currentQuestion = 0;
+                _currentPhaseAnswers = new();
+               break;
+            
+            case State.Questionnaire:
+                _isCorrect = true;
+                _timer.Reset();
                 UpdateQuestionView();
                 break;
             
-            case State.QuestionnaireTipPopup:
-                _questionnaireView.PhaseTipPopupView.SetActive(true);
-                _questionnaireView.PhaseTipPopupView.SetTip(_model.Phases[_currentPhase].TipLocalizationKey);
-                break;
-            
-            case State.Questionnaire:
-                _timer.Reset();
+            case State.PhaseTip:
+                _phaseTipView.SetTip(_model.Phases[_currentPhase].TipLocalizationKey);
                 break;
             
             case State.Results:
@@ -121,7 +125,6 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
 
     void PhaseTipPopupButtonClicked()
     {
-        _questionnaireView.PhaseTipPopupView.SetActive(false);
         SwitchState(State.Questionnaire);
     }
     
@@ -129,30 +132,39 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     {
         if (_correctAnswerChecker.IsCorrectAnswer(_currentPhase, DisplayingQuestion, answerOption))
         {
-            if (_currentQuestion < _model.Phases[_currentPhase].Questions.Length - 1)
-            {
-                _currentPhaseAnswers.Add(new QuestionAnswerModel(DisplayingQuestion, answerOption, _timer.Value));
-                _currentQuestion++;
-                
-                UpdateQuestionView();
-            }
-            else if (_currentPhase < _model.Phases.Length - 1)
+            int phaseQuestionsCount = _model.Phases[_currentPhase].Questions.Length - 1;
+            
+            _currentPhaseAnswers.Add(new QuestionAnswerModel(DisplayingQuestion, answerOption, _isCorrect, _timer.Value));
+            
+            if (_currentQuestion >= phaseQuestionsCount)
             {
                 _phasesQuestionsAnswersModel.Add(_currentPhaseAnswers);
-                _currentPhase++;
-                _currentQuestion = 0;
 
-                UpdateQuestionView();
+                if (_currentPhase < _model.Phases.Length - 1)
+                {
+                    _currentPhaseAnswers = new();
+                    _currentQuestion = 0;
+                    _currentPhase++;
+
+                    SwitchState(State.PhaseTip);
+                }
+                else
+                {
+                    SwitchState(State.Results);
+                }
             }
             else
             {
-                SwitchState(State.Results);
+                _currentQuestion++;
+                UpdateQuestionView();
             }
             
+            _isCorrect = true;
             _timer.Reset();
         }
         else
         {
+            _isCorrect = false;
             SetMistakeView(true);
         }
     }
@@ -172,7 +184,7 @@ public class QuestionnaireController : IQuestionnaireController, IInitializable,
     private enum State
     {
         Welcome,
-        QuestionnaireTipPopup,
+        PhaseTip,
         Questionnaire,
         Results,
     }

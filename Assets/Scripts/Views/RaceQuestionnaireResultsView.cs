@@ -51,6 +51,6 @@ public class RaceQuestionnaireResultsView : View
         accuracyPhase1Text.text = $"{LocalizationService.GetValue("race_result_accuracy_phase_1")}: {raceResults.AccuracyPhase1 * 100:F1}%";
 
         // Interpretation
-        interpretationText.text = raceResults.Interpretation;
+        interpretationText.text = LocalizationService.GetValue(raceResults.Interpretation);
     }
 }

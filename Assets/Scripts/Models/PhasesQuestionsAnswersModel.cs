@@ -4,20 +4,20 @@ namespace Models
 {
     public class PhasesQuestionsAnswersModel
     {
-        private readonly List<QuestionsAnswersModel> _phases = new();
+        private readonly List<PhaseAnswersModel> _phasesAnswers = new();
 
-        public IReadOnlyList<QuestionsAnswersModel> Phases => _phases;
+        public IReadOnlyList<PhaseAnswersModel> PhasesAnswers => _phasesAnswers;
 
-        public void Add(QuestionsAnswersModel phase) => _phases.Add(phase);
+        public void Add(PhaseAnswersModel phase) => _phasesAnswers.Add(phase);
         
         public void Reset()
         {
-            foreach (var phase in _phases)
+            foreach (var phase in _phasesAnswers)
             {
                 phase.Reset();
             }
             
-            _phases.Clear();
+            _phasesAnswers.Clear();
         }
     }
 }
