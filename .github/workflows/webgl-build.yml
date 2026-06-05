@@ -11,24 +11,27 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Create .nojekyll
-        run: |
-          mkdir -p Build/WebGL/WebGL
-          touch Build/WebGL/WebGL/.nojekyll
+      - name: Build Unity WebGL
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          unityVersion: 2022.3.62f3
+          targetPlatform: WebGL
+          buildName: IAT
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Build/WebGL/WebGL
+          publish_dir: build/WebGL/WebGL
           publish_branch: gh-pages
           keep_files: false
           force_orphan: true
