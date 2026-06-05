@@ -19,24 +19,16 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup Unity
-        uses: game-ci/unity-builder@v4
-        with:
-          unityVersion: 2022.3.62f3
-          targetPlatform: WebGL
-          buildName: IAT
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: WebGL-Build
-          path: build/WebGL/WebGL
+      - name: Create .nojekyll
+        run: |
+          mkdir -p Build/WebGL/WebGL
+          touch Build/WebGL/WebGL/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/WebGL/WebGL
+          publish_dir: Build/WebGL/WebGL
           publish_branch: gh-pages
           keep_files: false
           force_orphan: true
