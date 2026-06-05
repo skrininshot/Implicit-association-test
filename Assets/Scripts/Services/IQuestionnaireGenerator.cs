@@ -4,6 +4,6 @@ namespace Services
 {
     public interface IQuestionnaireGenerator
     {
-        public QuestionnaireModel Generate(IQuestionnaireGenerationSettings settings);
+        public QuestionnaireModel Generate();
     }
 }

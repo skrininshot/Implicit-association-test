@@ -23,7 +23,7 @@ namespace Views
 
         private void Update()
         {
-            if (Input.GetKeyDown(_keyCode)) // replace with new system input event
+            if (Input.GetKeyDown(_keyCode)) // TODO: replace with new system input event
             {
                 Button.onClick.Invoke();
             }

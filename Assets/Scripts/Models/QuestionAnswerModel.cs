@@ -15,6 +15,5 @@ namespace Models
             IsCorrect = isCorrect;
             Time = time;
         }
-
     }
 }

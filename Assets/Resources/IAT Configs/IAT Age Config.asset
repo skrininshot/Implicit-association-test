@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a95ef70528c43f598bbc53887409be3, type: 3}
+  m_Name: IAT Age Config
+  m_EditorClassIdentifier: 
+  TestId: iat_age
+  Categories:
+  - Name: young
+    Type: 0
+    AssetPrefix: hm_young_
+    AssetCount: 50
+    Polarity: young
+  - Name: old
+    Type: 0
+    AssetPrefix: hm_old_
+    AssetCount: 50
+    Polarity: old
+  - Name: positive_word
+    Type: 1
+    AssetPrefix: age_word_positive_
+    AssetCount: 50
+    Polarity: positive
+  - Name: negative_word
+    Type: 1
+    AssetPrefix: age_word_negative_
+    AssetCount: 50
+    Polarity: negative
+  Phases:
+  - PhaseName: Congruent
+    InstructionLocalizedKey: age_instruction_congruent
+    LeftCategories:
+    - young
+    - positive
+    RightCategories:
+    - old
+    - negative
+  - PhaseName: Incongruent
+    InstructionLocalizedKey: age_instruction_incongruent
+    LeftCategories:
+    - old
+    - positive
+    RightCategories:
+    - young
+    - negative
+  QuestionsPerPhase: 40
+  MaxConsecutiveSameType: 3
+  InterpretationKeyPositive: age_result_interpretation_young
+  InterpretationKeyNegative: age_result_interpretation_old
+  InterpretationKeyNeutral: age_result_interpretation_neutral
+  ResultKeys:
+    DScoreTitle: age_result_dscore
+    DScoreDescription: age_result_dscore_description
+    DScoreNotEnoughData: age_result_dscore_not_enought
+    AvgLatencyTitle: age_result_average_latency
+    AvgLatencyDescription: age_result_avg_latency_description
+    MillisecondsShort: milliseconds_short
+    AccuracyPhaseTitle0: age_result_accuracy_phase_0
+    AccuracyPhaseTitle1: age_result_accuracy_phase_1
+    AccuracyDescription: age_result_accuracy_description
+    InterpretationDescription: age_result_interpretation_description
+  ButtonPreview: {fileID: 2634400497047477494, guid: 77f62884f11313a4ea73845bc8fc6894, type: 3}

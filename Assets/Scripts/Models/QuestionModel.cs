@@ -3,11 +3,11 @@ namespace Models
     [System.Serializable]
     public class QuestionModel
     {
-        public readonly CharacteristicModel[] Characteristics;
+        public readonly Stimulus Category;
 
-        public QuestionModel(CharacteristicModel[] characteristics)
+        public QuestionModel(Stimulus category)
         {
-            Characteristics = characteristics;
+            Category = category;
         }
     }
 }

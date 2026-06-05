@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a95ef70528c43f598bbc53887409be3, type: 3}
+  m_Name: IAT Race Config
+  m_EditorClassIdentifier: 
+  TestId: iat_race
+  Categories:
+  - Name: face_white
+    Type: 0
+    AssetPrefix: hm_white_
+    AssetCount: 50
+    Polarity: white
+  - Name: face_black
+    Type: 0
+    AssetPrefix: hm_black_
+    AssetCount: 50
+    Polarity: black
+  - Name: positive_word
+    Type: 1
+    AssetPrefix: race_word_positive_
+    AssetCount: 50
+    Polarity: positive
+  - Name: negative_word
+    Type: 1
+    AssetPrefix: race_word_negative_
+    AssetCount: 50
+    Polarity: negative
+  Phases:
+  - PhaseName: Congruent
+    InstructionLocalizedKey: race_instruction_congruent
+    LeftCategories:
+    - face_white
+    - positive
+    RightCategories:
+    - face_black
+    - negative
+  - PhaseName: Incongruent
+    InstructionLocalizedKey: race_instruction_incongruent
+    LeftCategories:
+    - face_black
+    - positive
+    RightCategories:
+    - face_white
+    - negative
+  QuestionsPerPhase: 40
+  MaxConsecutiveSameType: 3
+  InterpretationKeyPositive: race_result_interpretation_white
+  InterpretationKeyNegative: race_result_interpretation_black
+  InterpretationKeyNeutral: race_result_interpretation_neutral
+  ResultKeys:
+    DScoreTitle: race_result_dscore
+    DScoreDescription: race_result_dscore_description
+    DScoreNotEnoughData: race_result_dscore_not_enought
+    AvgLatencyTitle: race_result_average_latency
+    AvgLatencyDescription: race_result_avg_latency_description
+    MillisecondsShort: milliseconds_short
+    AccuracyPhaseTitle0: race_result_accuracy_phase_0
+    AccuracyPhaseTitle1: race_result_accuracy_phase_1
+    AccuracyDescription: race_result_accuracy_description
+    InterpretationDescription: race_result_interpretation_description
+  ButtonPreview: {fileID: 2559477874660239418, guid: bb25dd2cde0874c459484b4be600aa3b, type: 3}

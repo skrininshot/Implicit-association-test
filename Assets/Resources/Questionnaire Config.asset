@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9256a72ae8a34995aa41e1debef8ae4c, type: 3}
+  m_Name: Questionnaire Config
+  m_EditorClassIdentifier: 
+  <IatConfigs>k__BackingField:
+  - {fileID: 11400000, guid: 356664ec84fed3e4793a6e833b01aa39, type: 2}
+  - {fileID: 11400000, guid: 15c3c3409c83ee2429123275339db2fd, type: 2}
+  - {fileID: 11400000, guid: c27797bf1f3930042a84557b88bcf57d, type: 2}

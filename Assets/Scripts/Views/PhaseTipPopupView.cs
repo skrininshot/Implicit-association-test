@@ -31,7 +31,6 @@ namespace Views
         private void UpdateTip()
         {
             text.text = LocalizationService.GetValue(_tipLocalizationKey);
-
         }
     }
 }

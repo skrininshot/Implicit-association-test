@@ -3,103 +3,102 @@ using Models;
 using Services;
 using TMPro;
 using UnityEngine;
-using Views;
 
-public class QuestionnaireView : View
+namespace Views
 {
-     [SerializeField] private Transform buttonOptionsContainer;
-     [SerializeField] private Transform characteristicsContainer;
-     
-     [SerializeField] private ButtonOptionView buttonOptionViewPrefab;
-     [SerializeField] private CharacteristicViewTypePrefab[] characteristicViewTypePrefabs;
-
-     [SerializeField] private GameObject mistakeView;
-     [SerializeField] private TMP_Text phaseTipText;
-     
-     private Dictionary<AnswerOptionModel, ButtonOptionView> _answerOptionButtons;
-     private Dictionary<CharacteristicType, CharacteristicView> _characteristicViews;
-     
-     public IReadOnlyDictionary<AnswerOptionModel, ButtonOptionView> AnswerOptionButtons => _answerOptionButtons;
-
-     private string _phaseLocalizationTextKey;
-     
-     public void Initialize(AnswerOptionModel[] answerOptions)
+     public class QuestionnaireView : View
      {
-          for (int i = 0; i < buttonOptionsContainer.childCount; i++)
-          {
-               Destroy(buttonOptionsContainer.GetChild(i).gameObject);
-          }
-          
-          for (int i = 0; i < characteristicsContainer.childCount; i++)
-          {
-               Destroy(characteristicsContainer.GetChild(i).gameObject);
-          }
+          [SerializeField] private Transform buttonOptionsContainer;
+          [SerializeField] private Transform stimulusContainer;
+     
+          [SerializeField] private ButtonOptionView buttonOptionViewPrefab;
+          [SerializeField] private StimulusViewTypePrefab[] stimulusViewTypePrefabs;
 
-          _characteristicViews = new();
+          [SerializeField] private GameObject mistakeView;
+          [SerializeField] private TMP_Text phaseTipText;
+     
+          private Dictionary<AnswerOptionModel, ButtonOptionView> _answerOptionButtons = new();
+          private Dictionary<StimulusType, StimulusView> _stimulusViews;
+     
+          public IReadOnlyDictionary<AnswerOptionModel, ButtonOptionView> AnswerOptionButtons => _answerOptionButtons;
 
-          foreach (var element in characteristicViewTypePrefabs)
+          private string _phaseLocalizationTextKey;
+     
+          public void Initialize(AnswerOptionModel[] answerOptions)
           {
-               var characteristicView = Instantiate(element.Prefab, characteristicsContainer);
-               _characteristicViews.Add(element.Type, characteristicView);
-          }
-          
-          _answerOptionButtons = new();
-          
-          foreach (var answerOption in answerOptions)
-          {
-               var buttonView = Instantiate(buttonOptionViewPrefab, buttonOptionsContainer);
-               buttonView.Initialize(answerOption);
-               _answerOptionButtons.Add(answerOption, buttonView);
-          }
-     }
-
-     public void SetQuestionView(QuestionModel model)
-     {
-          foreach (var characteristicViews in _characteristicViews)
-          {
-               characteristicViews.Value.gameObject.SetActive(false);
-          }    
-          
-          foreach (var characteristic in model.Characteristics)
-          {
-               if (_characteristicViews.ContainsKey(characteristic.DataType))
+               for (int i = 0; i < buttonOptionsContainer.childCount; i++)
                {
-                    _characteristicViews[characteristic.DataType].gameObject.SetActive(true);
-                    _characteristicViews[characteristic.DataType].SetData(characteristic.Data);
+                    Destroy(buttonOptionsContainer.GetChild(i).gameObject);
+               }
+          
+               for (int i = 0; i < stimulusContainer.childCount; i++)
+               {
+                    Destroy(stimulusContainer.GetChild(i).gameObject);
+               }
+
+               _stimulusViews = new();
+
+               foreach (var element in stimulusViewTypePrefabs)
+               {
+                    var stimulusView = Instantiate(element.Prefab, stimulusContainer);
+                    _stimulusViews.Add(element.Type, stimulusView);
+               }
+          
+               _answerOptionButtons = new();
+          
+               foreach (var answerOption in answerOptions)
+               {
+                    var buttonView = Instantiate(buttonOptionViewPrefab, buttonOptionsContainer);
+                    buttonView.Initialize(answerOption);
+                    _answerOptionButtons.Add(answerOption, buttonView);
                }
           }
-     }
 
-     private void OnEnable()
-     {
-          LocalizationService.OnLanguageChanged += UpdateTip;
-     }
+          public void SetQuestionView(QuestionModel model)
+          {
+               foreach (var stimulusViews in _stimulusViews)
+               {
+                    stimulusViews.Value.gameObject.SetActive(false);
+               }    
+          
+               if (_stimulusViews.ContainsKey(model.Category.StimulusType))
+               {
+                    _stimulusViews[model.Category.StimulusType].gameObject.SetActive(true);
+                    _stimulusViews[model.Category.StimulusType].SetData(model.Category.Data);
+               }
+          }
 
-     private void OnDisable()
-     {
-          LocalizationService.OnLanguageChanged -= UpdateTip;
-     }
+          private void OnEnable()
+          {
+               LocalizationService.OnLanguageChanged += UpdateTip;
+          }
 
-     private void UpdateTip()
-     {
-          phaseTipText.text = LocalizationService.GetValue(_phaseLocalizationTextKey);
-     }
+          private void OnDisable()
+          {
+               LocalizationService.OnLanguageChanged -= UpdateTip;
+          }
 
-     public void UpdatePhaseTip(string localizationTextKey)
-     {
-          _phaseLocalizationTextKey = localizationTextKey;
-          UpdateTip();
-     }
+          private void UpdateTip()
+          {
+               phaseTipText.text = LocalizationService.GetValue(_phaseLocalizationTextKey);
+          }
 
-     public void SetMistakeView(bool active)
-     {
-          mistakeView.gameObject.SetActive(active);
-     }
+          public void UpdatePhaseTip(string localizationTextKey)
+          {
+               _phaseLocalizationTextKey = localizationTextKey;
+               UpdateTip();
+          }
 
-     [System.Serializable]
-     public class CharacteristicViewTypePrefab
-     {
-          public CharacteristicType Type;
-          public CharacteristicView Prefab;
+          public void SetMistakeView(bool active)
+          {
+               mistakeView.gameObject.SetActive(active);
+          }
+
+          [System.Serializable]
+          public class StimulusViewTypePrefab
+          {
+               public StimulusType Type;
+               public StimulusView Prefab;
+          }
      }
 }

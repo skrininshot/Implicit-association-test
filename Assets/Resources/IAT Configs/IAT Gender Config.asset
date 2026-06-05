@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a95ef70528c43f598bbc53887409be3, type: 3}
+  m_Name: IAT Gender Config
+  m_EditorClassIdentifier: 
+  TestId: iat_gender
+  Categories:
+  - Name: male
+    Type: 0
+    AssetPrefix: hm_male_
+    AssetCount: 50
+    Polarity: male
+  - Name: female
+    Type: 0
+    AssetPrefix: hm_female_
+    AssetCount: 50
+    Polarity: female
+  - Name: positive_word
+    Type: 1
+    AssetPrefix: gender_word_positive_
+    AssetCount: 50
+    Polarity: positive
+  - Name: negative_word
+    Type: 1
+    AssetPrefix: gender_word_negative_
+    AssetCount: 50
+    Polarity: negative
+  Phases:
+  - PhaseName: Congruent
+    InstructionLocalizedKey: gender_instruction_congruent
+    LeftCategories:
+    - male
+    - positive
+    RightCategories:
+    - female
+    - negative
+  - PhaseName: Incongruent
+    InstructionLocalizedKey: gender_instruction_incongruent
+    LeftCategories:
+    - female
+    - positive
+    RightCategories:
+    - male
+    - negative
+  QuestionsPerPhase: 40
+  MaxConsecutiveSameType: 3
+  InterpretationKeyPositive: gender_result_interpretation_male
+  InterpretationKeyNegative: gender_result_interpretation_female
+  InterpretationKeyNeutral: gender_result_interpretation_neutral
+  ResultKeys:
+    DScoreTitle: gender_result_dscore
+    DScoreDescription: gender_result_dscore_description
+    DScoreNotEnoughData: gender_result_dscore_not_enought
+    AvgLatencyTitle: gender_result_average_latency
+    AvgLatencyDescription: gender_result_avg_latency_description
+    MillisecondsShort: milliseconds_short
+    AccuracyPhaseTitle0: gender_result_accuracy_phase_0
+    AccuracyPhaseTitle1: gender_result_accuracy_phase_1
+    AccuracyDescription: gender_result_accuracy_description
+    InterpretationDescription: gender_result_interpretation_description
+  ButtonPreview: {fileID: 4409356895119126633, guid: 76c9c0a5103dddf44a72a362ca9c6e61, type: 3}

@@ -15,7 +15,7 @@ namespace Views
 
         private void OnDisable()
         {
-            button.onClick.RemoveListener(SwitchToNextLanguage);
+            button.onClick.RemoveAllListeners();
         }
 
         public static void SwitchToNextLanguage()
