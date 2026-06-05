@@ -13,12 +13,12 @@
 </head>
 <body>
     <canvas id="unity-canvas"></canvas>
-    <script src="Build/{{.BuildName}}.loader.js"></script>
+    <script src="{{.BuildName}}.loader.js"></script>
     <script>
         createUnityInstance(document.querySelector("#unity-canvas"), {
-            dataUrl: "Build/{{.BuildName}}.data",
-            frameworkUrl: "Build/{{.BuildName}}.framework.js",
-            codeUrl: "Build/{{.BuildName}}.wasm",
+            dataUrl: "{{.BuildName}}.data",
+            frameworkUrl: "{{.BuildName}}.framework.js",
+            codeUrl: "{{.BuildName}}.wasm",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "{{.CompanyName}}",
             productName: "{{.ProductName}}",
