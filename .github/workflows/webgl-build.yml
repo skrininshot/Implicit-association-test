@@ -25,16 +25,6 @@ jobs:
         with:
           targetPlatform: WebGL
 
-      - name: Fix template placeholders
-        run: |
-          BUILD_DIR="build/WebGL/WebGL"
-          if [ -f "$BUILD_DIR/index.html" ]; then
-            sed -i 's|{{.BuildName}}|IAT|g' "$BUILD_DIR/index.html"
-            echo "Placeholders replaced."
-          else
-            echo "index.html not found!"
-          fi
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
