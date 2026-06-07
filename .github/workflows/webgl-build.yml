@@ -31,7 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/WebGL/WebGL
+          publish_dir: build/WebGL/IAT
           publish_branch: gh-pages
           keep_files: false
           force_orphan: true
