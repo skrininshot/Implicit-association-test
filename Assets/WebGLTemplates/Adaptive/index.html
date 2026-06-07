@@ -68,7 +68,7 @@
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
-    script.src = "IAT.loader.js";
+    script.src = "IAT.Loader.js";
     script.onload = () => {
       createUnityInstance(document.querySelector("#unity-canvas"), config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
