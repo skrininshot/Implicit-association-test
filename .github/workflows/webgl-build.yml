@@ -27,12 +27,15 @@ jobs:
           targetPlatform: WebGL
           buildName: IAT
 
-      - name: Remove nested Build folder if exists
-        run: |
-          if [ -d "build/WebGL/IAT/Build" ]; then
-            echo "Removing nested Build folder..."
-            rm -rf build/WebGL/IAT/Build
-          fi
+      - name: Flatten nested Build folder if present
+  run: |
+    if [ -d "build/WebGL/IAT/Build" ]; then
+      echo "Moving contents from build/WebGL/IAT/Build to build/WebGL/IAT..."
+      shopt -s dotglob
+      mv build/WebGL/IAT/Build/* build/WebGL/IAT/
+      rmdir build/WebGL/IAT/Build
+    fi
+  continue-on-error: true
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
