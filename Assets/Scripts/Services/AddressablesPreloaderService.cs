@@ -8,7 +8,6 @@ using Zenject;
 
 namespace Services
 {
-
     public interface IAddressablesPreloader
     {
         IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete);
@@ -16,11 +15,11 @@ namespace Services
 
     public class AddressablesPreloaderService : IAddressablesPreloader
     {
-        private const string DefaultGroupLabel = "default";
+        private const string GroupName = "Default Local Group";
 
         public IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete)
         {
-            var downloadHandle = Addressables.DownloadDependenciesAsync(DefaultGroupLabel);
+            var downloadHandle = Addressables.DownloadDependenciesAsync(GroupName);
             while (!downloadHandle.IsDone)
             {
                 onProgress?.Invoke(downloadHandle.PercentComplete);
@@ -29,19 +28,18 @@ namespace Services
 
             if (downloadHandle.Status != AsyncOperationStatus.Succeeded)
             {
-                Debug.LogError("Failed to download Addressables dependencies");
+                Debug.LogError($"Failed to download dependencies for group: {GroupName}");
                 onComplete?.Invoke();
                 yield break;
             }
 
             Addressables.Release(downloadHandle);
             
-            var locationsHandle = Addressables.LoadResourceLocationsAsync(DefaultGroupLabel, typeof(Sprite));
+            var locationsHandle = Addressables.LoadResourceLocationsAsync(GroupName, typeof(Sprite));
             yield return locationsHandle;
-
             if (locationsHandle.Status != AsyncOperationStatus.Succeeded)
             {
-                Debug.LogError("Failed to load resource locations");
+                Debug.LogError($"Failed to load resource locations for group: {GroupName}");
                 onComplete?.Invoke();
                 yield break;
             }
@@ -49,12 +47,12 @@ namespace Services
             var locations = locationsHandle.Result;
             int total = locations.Count;
             int loaded = 0;
-            
-            List<AsyncOperationHandle> loadHandles = new List<AsyncOperationHandle>();
+            var handles = new List<AsyncOperationHandle>();
+
             foreach (var location in locations)
             {
                 var handle = Addressables.LoadAssetAsync<Sprite>(location);
-                loadHandles.Add(handle);
+                handles.Add(handle);
                 handle.Completed += _ =>
                 {
                     loaded++;
@@ -62,12 +60,11 @@ namespace Services
                 };
             }
             
-            foreach (var handle in loadHandles)
+            foreach (var handle in handles)
                 yield return handle;
-            
-            foreach (var handle in loadHandles)
-                Addressables.Release(handle);
 
+            foreach (var handle in handles)
+                Addressables.Release(handle);
             Addressables.Release(locationsHandle);
 
             onProgress?.Invoke(1f);

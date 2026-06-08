@@ -78,8 +78,10 @@
   }
 
   function SetAddressablesProgress(progress) {
-    addressablesProgress = progress;
-    updateBar();
+    if (typeof progress === 'number') {
+        addressablesProgress = progress;
+        updateBar();
+    }
   }
 
   function AddressablesLoaded() {

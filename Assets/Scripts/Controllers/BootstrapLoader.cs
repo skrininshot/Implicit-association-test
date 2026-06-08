@@ -23,16 +23,14 @@ namespace Controllers
         private void OnProgress(float progress)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        Application.ExternalEval(
-            $"SetAddressablesProgress({progress.ToString("F3", System.Globalization.CultureInfo.InvariantCulture)});"
-        );
+        Application.ExternalCall("SetAddressablesProgress", progress);
 #endif
         }
 
         private void OnComplete()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        Application.ExternalEval("AddressablesLoaded();");
+        Application.ExternalCall("AddressablesLoaded");
 #endif
             StartCoroutine(_sceneLoader.LoadMainScene());
         }
