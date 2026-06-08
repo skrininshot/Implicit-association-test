@@ -15,25 +15,11 @@ namespace Services
 
     public class AddressablesPreloaderService : IAddressablesPreloader
     {
+        private const string PreloadLabel = "default";
+
         public IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete)
         {
-            var allKeys = new List<object>();
-            foreach (var locator in Addressables.ResourceLocators)
-            {
-                foreach (var key in locator.Keys)
-                {
-                    allKeys.Add(key);
-                }
-            }
-
-            if (allKeys.Count == 0)
-            {
-                Debug.LogWarning("No Addressable keys found. Skipping preload.");
-                onComplete?.Invoke();
-                yield break;
-            }
-            
-            var downloadHandle = Addressables.DownloadDependenciesAsync(allKeys);
+            var downloadHandle = Addressables.DownloadDependenciesAsync(PreloadLabel);
             while (!downloadHandle.IsDone)
             {
                 onProgress?.Invoke(downloadHandle.PercentComplete);
@@ -42,20 +28,37 @@ namespace Services
 
             if (downloadHandle.Status != AsyncOperationStatus.Succeeded)
             {
-                Debug.LogError("Failed to download Addressables dependencies");
+                Debug.LogError($"Failed to download dependencies for label '{PreloadLabel}'");
                 onComplete?.Invoke();
                 yield break;
             }
 
             Addressables.Release(downloadHandle);
             
-            int total = allKeys.Count;
+            var locationsHandle = Addressables.LoadResourceLocationsAsync(PreloadLabel, typeof(Sprite));
+            yield return locationsHandle;
+            if (locationsHandle.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogError($"Failed to get locations for label '{PreloadLabel}'");
+                onComplete?.Invoke();
+                yield break;
+            }
+
+            var locations = locationsHandle.Result;
+            if (locations.Count == 0)
+            {
+                Debug.LogWarning($"No Sprite locations found with label '{PreloadLabel}'. Skipping preload.");
+                onComplete?.Invoke();
+                yield break;
+            }
+
+            int total = locations.Count;
             int loaded = 0;
             var handles = new List<AsyncOperationHandle>();
 
-            foreach (var key in allKeys)
+            foreach (var location in locations)
             {
-                var handle = Addressables.LoadAssetAsync<Sprite>(key);
+                var handle = Addressables.LoadAssetAsync<Sprite>(location);
                 handles.Add(handle);
                 handle.Completed += _ =>
                 {
@@ -63,12 +66,14 @@ namespace Services
                     onProgress?.Invoke((float)loaded / total);
                 };
             }
-            
+
             foreach (var handle in handles)
                 yield return handle;
-            
+
             foreach (var handle in handles)
                 Addressables.Release(handle);
+
+            Addressables.Release(locationsHandle);
 
             onProgress?.Invoke(1f);
             onComplete?.Invoke();
