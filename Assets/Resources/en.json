@@ -4,6 +4,7 @@
     { "key": "wrong_option_message", "value": "Incorrect option choice!" },
     { "key": "race_welcome_test", "value": "<align=\"center\"><b><size=135%>Categorization Speed Test</size></b></align>\n\nYou are about to complete a task that requires quickly sorting images and words into two categories.\nFaces and words will appear on the screen, and you should press the left (<color=#ff00ff>PURPLE</color>) or right (<color=#0ff>BLUE</color>) button according to the current rule.\nThe test has two parts. The rules in the first part differ from those in the second part — please read the instructions carefully before each part.\n\n<align=\"center\"><b><size=115%>How to respond:</size></b></align>\n\n· Respond as quickly as possible, trust your first instinct.\n· Try to avoid mistakes, but if you make one, simply press the correct button and continue.\n· Do not linger on a single answer; maintaining a fast pace is important.\n\n<align=\"center\">At the end, your result will be displayed.\n\n<b><size=110%>Press “Start” when you are ready.</size></b></align>" },    { "key": "start_test_button_text", "value": "Start" },
     { "key": "start_test_button_text", "value": "Start" },
+    { "key": "back_button_text", "value": "Back" },
     { "key": "accept_button_text", "value": "Accept" },
     
     { "key": "milliseconds_short", "value": "ms" },

@@ -59,7 +59,8 @@ namespace Controllers
                 button.onClick.AddListener(() => OnIatSelectedButtonClicked(iatConfig));
             }
             
-            _welcomeView.ButtonAccept.onClick.AddListener(OnWelcomeButtonClicked);
+            _welcomeView.ButtonAccept.onClick.AddListener(OnWelcomeStartButtonClicked);
+            _welcomeView.ButtonBack.onClick.AddListener(OnWelcomeBackButtonClicked);
             _phaseTipView.AcceptButton.onClick.AddListener(PhaseTipPopupButtonClicked);
         
             _resultsView.ButtonAccept.onClick.AddListener(OnResultsButtonClicked);
@@ -80,6 +81,7 @@ namespace Controllers
                 answerOptionButton.Value.Button.onClick.RemoveAllListeners();
             
             _phaseTipView.AcceptButton.onClick.RemoveAllListeners();
+            _welcomeView.ButtonBack.onClick.RemoveAllListeners();
             _resultsView.ButtonAccept.onClick.RemoveAllListeners();
         }
         
@@ -89,10 +91,15 @@ namespace Controllers
             SwitchState(State.Welcome);
         }
         
-        void OnWelcomeButtonClicked()
+        void OnWelcomeBackButtonClicked()
+        {
+            SwitchState(State.SelectIat);
+        }
+        
+        void OnWelcomeStartButtonClicked()
         {
             SwitchState(State.PhaseTip);
-        }
+        } 
     
         void OnResultsButtonClicked()
         {
