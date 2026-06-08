@@ -15,11 +15,25 @@ namespace Services
 
     public class AddressablesPreloaderService : IAddressablesPreloader
     {
-        private const string GroupName = "Default Local Group";
-
         public IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete)
         {
-            var downloadHandle = Addressables.DownloadDependenciesAsync(GroupName);
+            var allKeys = new List<object>();
+            foreach (var locator in Addressables.ResourceLocators)
+            {
+                foreach (var key in locator.Keys)
+                {
+                    allKeys.Add(key);
+                }
+            }
+
+            if (allKeys.Count == 0)
+            {
+                Debug.LogWarning("No Addressable keys found. Skipping preload.");
+                onComplete?.Invoke();
+                yield break;
+            }
+            
+            var downloadHandle = Addressables.DownloadDependenciesAsync(allKeys);
             while (!downloadHandle.IsDone)
             {
                 onProgress?.Invoke(downloadHandle.PercentComplete);
@@ -28,30 +42,20 @@ namespace Services
 
             if (downloadHandle.Status != AsyncOperationStatus.Succeeded)
             {
-                Debug.LogError($"Failed to download dependencies for group: {GroupName}");
+                Debug.LogError("Failed to download Addressables dependencies");
                 onComplete?.Invoke();
                 yield break;
             }
 
             Addressables.Release(downloadHandle);
             
-            var locationsHandle = Addressables.LoadResourceLocationsAsync(GroupName, typeof(Sprite));
-            yield return locationsHandle;
-            if (locationsHandle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogError($"Failed to load resource locations for group: {GroupName}");
-                onComplete?.Invoke();
-                yield break;
-            }
-
-            var locations = locationsHandle.Result;
-            int total = locations.Count;
+            int total = allKeys.Count;
             int loaded = 0;
             var handles = new List<AsyncOperationHandle>();
 
-            foreach (var location in locations)
+            foreach (var key in allKeys)
             {
-                var handle = Addressables.LoadAssetAsync<Sprite>(location);
+                var handle = Addressables.LoadAssetAsync<Sprite>(key);
                 handles.Add(handle);
                 handle.Completed += _ =>
                 {
@@ -62,10 +66,9 @@ namespace Services
             
             foreach (var handle in handles)
                 yield return handle;
-
+            
             foreach (var handle in handles)
                 Addressables.Release(handle);
-            Addressables.Release(locationsHandle);
 
             onProgress?.Invoke(1f);
             onComplete?.Invoke();
