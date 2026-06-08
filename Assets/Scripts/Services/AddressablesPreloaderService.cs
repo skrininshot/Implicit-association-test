@@ -17,6 +17,8 @@ namespace Services
     {
         private const string PreloadLabel = "default";
 
+        private List<Sprite> _preloadedSprites = new();
+
         public IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete)
         {
             var downloadHandle = Addressables.DownloadDependenciesAsync(PreloadLabel);
@@ -37,6 +39,7 @@ namespace Services
             
             var locationsHandle = Addressables.LoadResourceLocationsAsync(PreloadLabel, typeof(Sprite));
             yield return locationsHandle;
+
             if (locationsHandle.Status != AsyncOperationStatus.Succeeded)
             {
                 Debug.LogError($"Failed to get locations for label '{PreloadLabel}'");
@@ -47,14 +50,14 @@ namespace Services
             var locations = locationsHandle.Result;
             if (locations.Count == 0)
             {
-                Debug.LogWarning($"No Sprite locations found with label '{PreloadLabel}'. Skipping preload.");
+                Debug.LogWarning($"No Sprite locations with label '{PreloadLabel}'");
                 onComplete?.Invoke();
                 yield break;
             }
 
             int total = locations.Count;
             int loaded = 0;
-            var handles = new List<AsyncOperationHandle>();
+            var handles = new List<AsyncOperationHandle<Sprite>>();
 
             foreach (var location in locations)
             {
@@ -63,18 +66,22 @@ namespace Services
                 handle.Completed += _ =>
                 {
                     loaded++;
-                    onProgress?.Invoke((float)loaded / total);
+                    float progress = (float)loaded / total;
+                    onProgress?.Invoke(progress);
                 };
             }
-
+            
             foreach (var handle in handles)
                 yield return handle;
-
+            
             foreach (var handle in handles)
-                Addressables.Release(handle);
-
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                    _preloadedSprites.Add(handle.Result);
+            }
+            
             Addressables.Release(locationsHandle);
-
+            
             onProgress?.Invoke(1f);
             onComplete?.Invoke();
         }
