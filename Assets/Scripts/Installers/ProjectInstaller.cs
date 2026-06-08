@@ -12,16 +12,9 @@ namespace Installers
     
         public override void InstallBindings()
         {
+            Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+            Container.Bind<IAddressablesPreloader>().To<AddressablesPreloaderService>().AsSingle();
             LocalizationService.LoadLocalizedText(langCode);
-            TransitionToMainScene();
-        }
-
-        void TransitionToMainScene()
-        {
-            if (SceneManager.GetActiveScene().name != mainSceneName)
-            {
-                SceneManager.LoadScene(mainSceneName);
-            }
         }
     }
 }

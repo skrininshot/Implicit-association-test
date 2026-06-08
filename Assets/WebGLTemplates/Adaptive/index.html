@@ -22,63 +22,86 @@
   </style>
 </head>
 <body>
-  <div id="unity-container">
-    <canvas id="unity-canvas"></canvas>
-    <div id="unity-loading-bar">
-      <div id="unity-progress-bar-empty">
-        <div id="unity-progress-bar-full"></div>
-      </div>
+<div id="unity-container">
+  <canvas id="unity-canvas"></canvas>
+  <div id="unity-loading-bar">
+    <div id="unity-progress-bar-empty">
+      <div id="unity-progress-bar-full"></div>
     </div>
-    <div id="unity-warning"></div>
   </div>
+  <div id="unity-warning"></div>
+</div>
 
-  <script>
-    function unityShowBanner(msg, type) {
-      var warningBanner = document.querySelector("#unity-warning");
-      function updateBannerVisibility() {
-        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-      }
-      var div = document.createElement('div');
-      div.innerHTML = msg;
-      warningBanner.appendChild(div);
-      if (type == 'error') div.style.background = 'red';
-      else {
-        if (type == 'warning') div.style.background = 'yellow';
-        setTimeout(function() {
-          warningBanner.removeChild(div);
-          updateBannerVisibility();
-        }, 5000);
-      }
-      updateBannerVisibility();
+<script>
+  function unityShowBanner(msg, type) {
+    var warningBanner = document.querySelector("#unity-warning");
+    function updateBannerVisibility() {
+      warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
     }
+    var div = document.createElement('div');
+    div.innerHTML = msg;
+    warningBanner.appendChild(div);
+    if (type == 'error') div.style.background = 'red';
+    else {
+      if (type == 'warning') div.style.background = 'yellow';
+      setTimeout(function() {
+        warningBanner.removeChild(div);
+        updateBannerVisibility();
+      }, 5000);
+    }
+    updateBannerVisibility();
+  }
 
-    var config = {
-        dataUrl: "Build/IAT.data",
-        frameworkUrl: "Build/IAT.framework.js",
-        codeUrl: "Build/IAT.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "skrininshot",
-        productName: "IAT",
-        productVersion: "1.0",
-        showBanner: unityShowBanner,
-    };
+  var config = {
+    dataUrl: "Build/IAT.data",
+    frameworkUrl: "Build/IAT.framework.js",
+    codeUrl: "Build/IAT.wasm",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "skrininshot",
+    productName: "IAT",
+    productVersion: "1.0",
+    showBanner: unityShowBanner,
+  };
 
-    var loadingBar = document.querySelector("#unity-loading-bar");
-    var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    loadingBar.style.display = "block";
+  var loadingBar = document.querySelector("#unity-loading-bar");
+  var progressBarFull = document.querySelector("#unity-progress-bar-full");
+  loadingBar.style.display = "block";
 
-    var script = document.createElement("script");
-    script.src = "Build/IAT.loader.js";
-    script.onload = () => {
-      createUnityInstance(document.querySelector("#unity-canvas"), config, (progress) => {
-        progressBarFull.style.width = 100 * progress + "%";
-      }).then((unityInstance) => {
-        loadingBar.style.display = "none";
-      }).catch((message) => {
-        alert(message);
-      });
-    };
-    document.body.appendChild(script);
-  </script>
+  var unityWeight = 0.5;
+  var addressablesWeight = 0.5;
+  var unityProgress = 0;
+  var addressablesProgress = 0;
+
+  function updateBar() {
+    var total = unityWeight * unityProgress + addressablesWeight * addressablesProgress;
+    progressBarFull.style.width = (total * 100) + "%";
+  }
+
+  function SetAddressablesProgress(progress) {
+    addressablesProgress = progress;
+    updateBar();
+  }
+
+  function AddressablesLoaded() {
+    addressablesProgress = 1;
+    updateBar();
+    loadingBar.style.display = "none";
+  }
+
+  var script = document.createElement("script");
+  script.src = "Build/IAT.loader.js";
+  script.onload = () => {
+    createUnityInstance(document.querySelector("#unity-canvas"), config, (progress) => {
+      unityProgress = progress;
+      updateBar();
+    }).then((unityInstance) => {
+      unityProgress = 1;
+      updateBar();
+    }).catch((message) => {
+      alert(message);
+    });
+  };
+  document.body.appendChild(script);
+</script>
 </body>
 </html>
