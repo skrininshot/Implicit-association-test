@@ -24,5 +24,11 @@ namespace Views
         {
             text.text = LocalizationService.GetValue(localizationKey);
         }
+
+        public void UpdateLocalizationKey(string newLocalizationKey)
+        {
+            localizationKey = newLocalizationKey;
+            UpdateText();
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Views
           [SerializeField] private StimulusViewTypePrefab[] stimulusViewTypePrefabs;
 
           [SerializeField] private GameObject mistakeView;
-          [SerializeField] private TMP_Text phaseTipText;
+          [SerializeField] private LocalizedTMP phaseTipText;
      
           private Dictionary<AnswerOptionModel, ButtonOptionView> _answerOptionButtons = new();
           private Dictionary<StimulusType, StimulusView> _stimulusViews;
@@ -80,7 +80,7 @@ namespace Views
 
           private void UpdateTip()
           {
-               phaseTipText.text = LocalizationService.GetValue(_phaseLocalizationTextKey);
+               phaseTipText.UpdateLocalizationKey(_phaseLocalizationTextKey);
           }
 
           public void UpdatePhaseTip(string localizationTextKey)
