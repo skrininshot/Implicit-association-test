@@ -21,6 +21,8 @@ namespace Services
 
         public IEnumerator PreloadCoroutine(Action<float> onProgress, Action onComplete)
         {
+            Debug.Log("[Preloader] Starting preload...");
+            
             var downloadHandle = Addressables.DownloadDependenciesAsync(PreloadLabel);
             while (!downloadHandle.IsDone)
             {
@@ -84,6 +86,7 @@ namespace Services
             
             onProgress?.Invoke(1f);
             onComplete?.Invoke();
+            Debug.Log("[Preloader] Preload finished.");
         }
     }
 }

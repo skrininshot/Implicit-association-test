@@ -269,6 +269,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22ff9bbf2b78fa7419f0ccce87e088c1
+    m_Address: Stimulus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 230a130483850c14d89e869d16b882bc
     m_Address: hm_old_12
     m_ReadOnly: 0
